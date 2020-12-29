@@ -14,12 +14,6 @@ setup(
         'gym_md',
         'gym_md.envs',
     ],
-    package_data={
-        # 'gym_md': ['gym_md/envs/tiles/*.png']
-    },
-    data_files=[
-        # ('bitfiles', glob('gym_md/envs/tiles/*'))
-    ],
     include_package_data=True,
     install_requires=['gym']
 )
