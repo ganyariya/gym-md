@@ -6,10 +6,6 @@ from .point import Point
 
 
 class Grid:
-    H: int
-    W: int
-    g: List[List[int]]
-    stage_file_path: str
 
     def __init__(self, stage_file_path: str) -> None:
         self.H: int
