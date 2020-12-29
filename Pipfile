@@ -9,6 +9,8 @@ pydantic = "*"
 pytype = "*"
 pytest = "*"
 gym = "*"
+wheel = "*"
+twine = "*"
 
 [dev-packages]
 
