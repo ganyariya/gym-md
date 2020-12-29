@@ -1,1 +1,1 @@
-from gym_md.envs.foo_env import FooEnv
+from gym_md.envs.md_env import MdEnv
