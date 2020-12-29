@@ -3,7 +3,7 @@ from glob import glob
 
 setup(
     name='gym_md',
-    version='0.0.3',
+    version='0.0.4',
     description='OpenAI Gym Environment for MiniDungeons',
     url='https://github.com/Ganariya/gym-md',
     author='ganariya',
@@ -14,8 +14,12 @@ setup(
         'gym_md',
         'gym_md.envs',
     ],
+    package_data={
+        # 'gym_md': ['gym_md/envs/tiles/*.png']
+    },
     data_files=[
         # ('bitfiles', glob('gym_md/envs/tiles/*'))
     ],
+    include_package_data=True,
     install_requires=['gym']
 )
