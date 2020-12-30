@@ -1,1 +1,1 @@
-from gym_md.envs.md_env import MdEnv
+from gym_md.envs.md_env import MdEnvBase

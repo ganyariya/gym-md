@@ -1,7 +1,7 @@
 import gym
 
 
-class MdEnv(gym.Env):
+class MdEnvBase(gym.Env):
     metadata = {'render.modes': ['human']}
 
     def __init__(self):
