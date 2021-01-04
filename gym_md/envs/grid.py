@@ -1,9 +1,8 @@
 from typing import List, Tuple, Final
 from os import path
 
-import numpy as np
-
-from .settings import Settings
+from gym_md.envs.point import Point
+from gym_md.envs.setting import Setting
 
 
 class Grid:
@@ -13,7 +12,7 @@ class Grid:
 
     Attributes
     ----------
-    C: Settings
+    setting: Setting
         settings
     H: int
         height
@@ -24,21 +23,21 @@ class Grid:
 
     """
 
-    def __init__(self, stage_name: str, const: Settings) -> None:
+    def __init__(self, stage_name: str, setting: Setting) -> None:
         texts = Grid.read_grid_as_list(stage_name)
-        self.C: Final[Settings] = const
-        self.H: int = len(texts)
-        self.W: int = len(texts[0])
-        self.g: List[List[int]] = [[0] * self.W for _ in range(self.H)]
+        self.setting: Final[Setting] = setting
+        self.H: Final[int] = len(texts)
+        self.W: Final[int] = len(texts[0])
+        self.g: Final[List[List[int]]] = [[0] * self.W for _ in range(self.H)]
         for i in range(self.H):
             for j in range(self.W):
-                self[i, j] = self.C.CHARACTER_TO_NUM[texts[i][j]]
+                self[i, j] = self.setting.CHARACTER_TO_NUM[texts[i][j]]
 
-    def __getitem__(self, t: Tuple[int, int]) -> int:
+    def __getitem__(self, t: Point) -> int:
         y, x = t
         return self.g[y][x]
 
-    def __setitem__(self, t: Tuple[int, int], value: int) -> None:
+    def __setitem__(self, t: Point, value: int) -> None:
         y, x = t
         self.g[y][x] = value
 
@@ -62,3 +61,9 @@ class Grid:
         with open(stage_file, 'r') as f:
             texts = [s.strip() for s in f]
         return texts
+
+
+if __name__ == '__main__':
+    stage_name: str = 'test'
+    setting = Setting(stage_name=stage_name)
+    grid = Grid(stage_name=stage_name, setting=setting)
