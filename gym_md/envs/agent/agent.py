@@ -1,15 +1,14 @@
 from typing import Final
 
-from gym_md.envs.point import Point
-from gym_md.envs.grid import Grid
-from gym_md.envs.setting import Setting
-from gym_md.envs.agent.path import Path
 from gym_md.envs.agent.actioner import Actioner, Actions
 from gym_md.envs.agent.move_info import MoveInfo
+from gym_md.envs.agent.path import Path
+from gym_md.envs.grid import Grid
+from gym_md.envs.point import Point
+from gym_md.envs.setting import Setting
 
 
 class Agent:
-
     def __init__(self, grid: Grid, setting: Setting):
         self.grid: Final[Grid] = grid
         self.setting: Final[Setting] = setting
@@ -20,5 +19,7 @@ class Agent:
 
     def take_action(self, actions: Actions) -> int:
         info: Final[MoveInfo] = self.path.get_moveinfo(y=self.y, x=self.x, safe=False)
-        safe_info: Final[MoveInfo] = self.path.get_moveinfo(y=self.y, x=self.x, safe=True)
+        safe_info: Final[MoveInfo] = self.path.get_moveinfo(
+            y=self.y, x=self.x, safe=True
+        )
         pass

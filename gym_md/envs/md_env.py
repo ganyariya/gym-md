@@ -2,7 +2,7 @@ import gym
 
 
 class MdEnvBase(gym.Env):
-    metadata = {'render.modes': ['human']}
+    metadata = {"render.modes": ["human"]}
 
     def __init__(self):
         pass
@@ -13,7 +13,7 @@ class MdEnvBase(gym.Env):
     def step(self, action):
         pass
 
-    def render(self, mode='human'):
+    def render(self, mode="human"):
         pass
 
     def close(self):

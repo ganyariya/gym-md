@@ -1,5 +1,5 @@
-from typing import List, Tuple, Final
 from os import path
+from typing import Final, List
 
 from gym_md.envs.point import Point
 from gym_md.envs.setting import Setting
@@ -57,13 +57,13 @@ class Grid:
         -------
         texts: list
         """
-        stage_file = path.join('stages', f'{stage_name}.txt')
-        with open(stage_file, 'r') as f:
+        stage_file = path.join("stages", f"{stage_name}.txt")
+        with open(stage_file, "r") as f:
             texts = [s.strip() for s in f]
         return texts
 
 
-if __name__ == '__main__':
-    stage_name: str = 'test'
+if __name__ == "__main__":
+    stage_name: str = "test"
     setting = Setting(stage_name=stage_name)
     grid = Grid(stage_name=stage_name, setting=setting)

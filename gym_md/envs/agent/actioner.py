@@ -4,7 +4,6 @@ Actions = List[float]
 
 
 class Actioner:
-
     def __init__(self):
         pass
 

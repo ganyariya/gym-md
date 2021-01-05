@@ -12,8 +12,22 @@ gym = "*"
 wheel = "*"
 twine = "*"
 numpy = "*"
+flake8 = "*"
+black = "*"
+pydocstyle = "*"
+flake8-docstrings = "*"
+flake8-mypy = "*"
+isort = "*"
+flake8-isort = "*"
+flake8-quotes = "*"
+flake8-print = "*"
+flake8-annotations = "*"
+tox = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
