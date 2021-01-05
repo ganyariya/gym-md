@@ -21,11 +21,18 @@ isort = "*"
 flake8-isort = "*"
 flake8-print = "*"
 tox = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
 
 [dev-packages]
+sphinx-autobuild = "*"
 
 [requires]
 python_version = "3.8"
 
 [pipenv]
 allow_prereleases = true
+
+[scripts]
+build = "sphinx-build source build"
+auto_build = "sphinx-autobuild source build"
