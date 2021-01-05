@@ -1,3 +1,12 @@
+"""Grid Module.
+
+マップの情報を格納するGridクラス
+
+Notes
+-----
+Gridの要素を　画像や文字を管理したクラスに変更する
+
+"""
 from os import path
 from typing import Final, List
 
@@ -6,7 +15,7 @@ from gym_md.envs.setting import Setting
 
 
 class Grid:
-    """
+    """Grid Class.
 
     Support grid information used by env.
 
@@ -24,7 +33,7 @@ class Grid:
     """
 
     def __init__(self, stage_name: str, setting: Setting) -> None:
-        texts = Grid.read_grid_as_list(stage_name)
+        texts = Grid.read_grid_as_list_from_stage_name(stage_name)
         self.setting: Final[Setting] = setting
         self.H: Final[int] = len(texts)
         self.W: Final[int] = len(texts[0])
@@ -34,16 +43,33 @@ class Grid:
                 self[i, j] = self.setting.CHARACTER_TO_NUM[texts[i][j]]
 
     def __getitem__(self, t: Point) -> int:
+        """ある座標の状態を返す.
+
+        Notes
+        -----
+        Pointはtuple(int, int)
+
+        Returns
+        -------
+        int
+        """
         y, x = t
         return self.g[y][x]
 
     def __setitem__(self, t: Point, value: int) -> None:
+        """あるPointに要素を設定する.
+
+        Parameters
+        ----------
+        t: Point
+        value: int
+        """
         y, x = t
         self.g[y][x] = value
 
     @staticmethod
-    def read_grid_as_list(stage_name: str) -> List[str]:
-        """
+    def read_grid_as_list_from_stage_name(stage_name: str) -> List[str]:
+        """ステージ名からリストを返す.
 
         Read stage from stage name, and
         return texts as list[str].
@@ -55,15 +81,16 @@ class Grid:
 
         Returns
         -------
-        texts: list
+        list
         """
-        stage_file = path.join("stages", f"{stage_name}.txt")
+        file_dir = path.dirname(__file__)
+        stage_file = path.join(file_dir, "stages", f"{stage_name}.txt")
         with open(stage_file, "r") as f:
             texts = [s.strip() for s in f]
         return texts
 
 
 if __name__ == "__main__":
-    stage_name: str = "test"
-    setting = Setting(stage_name=stage_name)
-    grid = Grid(stage_name=stage_name, setting=setting)
+    name: str = "test"
+    setting = Setting(stage_name=name)
+    grid = Grid(stage_name=name, setting=setting)

@@ -1,3 +1,9 @@
+"""setting module.
+
+設定のモジュール．
+ステージ名を受け取り，そのステージ名にあったステージ読み込みと定数読み込みを行う．
+
+"""
 import json
 from os import path
 from typing import Dict, Final, List
@@ -6,9 +12,9 @@ from gym_md.envs.singleton import Singleton
 
 
 class Setting(Singleton):
-    """
+    """ステージに関する設定ファイル.
 
-    ステージに関する設定ファイル
+    シングルトンで設計されている．
 
     Attributes
     ----------
@@ -81,8 +87,9 @@ class Setting(Singleton):
 
     @staticmethod
     def read_settings(stage_name: str) -> dict:
-        """
-        Read setting corresponding to stage name
+        """Read setting corresponding to stage name.
+
+        ステージ名にあった設定を読み込む
 
         Parameters
         ----------
@@ -90,18 +97,41 @@ class Setting(Singleton):
 
         Returns
         -------
-        data: dict
+        dict
 
         """
-        json_path = path.join("props", f"{stage_name}.json")
+        file_dir = path.dirname(__file__)
+        json_path = path.join(file_dir, "props", f"{stage_name}.json")
         with open(json_path, "r") as f:
             data = json.load(f)
         return data
 
     @staticmethod
     def list_to_dict(arr: list) -> dict:
+        """リストを辞書にインデックス付きで変換する.
+
+        Parameters
+        ----------
+        arr: list
+
+        Returns
+        -------
+        dict
+
+        """
         return {arr[i]: i for i in range(len(arr))}
 
     @staticmethod
     def swap_dict(dic: dict) -> dict:
+        """辞書のkey, valueを入れ替えた辞書を作る.
+
+        Parameters
+        ----------
+        dic: dict
+
+        Returns
+        -------
+        dict
+
+        """
         return {v: k for k, v in dic.items()}

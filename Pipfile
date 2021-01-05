@@ -19,9 +19,7 @@ flake8-docstrings = "*"
 flake8-mypy = "*"
 isort = "*"
 flake8-isort = "*"
-flake8-quotes = "*"
 flake8-print = "*"
-flake8-annotations = "*"
 tox = "*"
 
 [dev-packages]
