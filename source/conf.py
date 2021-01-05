@@ -12,8 +12,8 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('./..'))
 
+sys.path.insert(0, os.path.abspath('./..'))
 
 # -- Project information -----------------------------------------------------
 
@@ -27,8 +27,8 @@ author = 'ganariya'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.autodoc',  # auto docで自動生成
+    'sphinx.ext.napoleon'  # numpy style
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -43,7 +43,7 @@ exclude_patterns = []
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
+# インストールしたテーマ
 html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
