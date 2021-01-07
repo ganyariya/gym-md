@@ -88,9 +88,3 @@ class Grid:
         with open(stage_file, "r") as f:
             texts = [s.strip() for s in f]
         return texts
-
-
-if __name__ == "__main__":
-    name: str = "test"
-    setting = Setting(stage_name=name)
-    grid = Grid(stage_name=name, setting=setting)

@@ -1,19 +1,26 @@
+"""agent module."""
 from typing import Final
 
 from gym_md.envs.agent.actioner import Actioner, Actions
 from gym_md.envs.agent.move_info import MoveInfo
-from gym_md.envs.agent.path import Path
+from gym_md.envs.agent.pather import Pather
 from gym_md.envs.grid import Grid
-from gym_md.envs.point import Point
 from gym_md.envs.setting import Setting
 
 
 class Agent:
+    """Agent class.
+
+    エージェントクラス．
+    Pather, Actionerを持つ．
+
+    """
+
     def __init__(self, grid: Grid, setting: Setting):
         self.grid: Final[Grid] = grid
         self.setting: Final[Setting] = setting
-        self.path: Final[Path] = Path(grid=grid, setting=setting)
-        self.actioner: Final[Actioner] = Actioner()
+        self.path: Final[Pather] = Pather(grid=grid, setting=setting)
+        self.actioner: Final[Actioner] = Actioner(setting=setting)
         self.y: int = -1
         self.x: int = -1
 
@@ -22,4 +29,9 @@ class Agent:
         safe_info: Final[MoveInfo] = self.path.get_moveinfo(
             y=self.y, x=self.x, safe=True
         )
-        pass
+        unsafe_info: Final[MoveInfo] = self.path.get_moveinfo(
+            y=self.y, x=self.x, safe=False
+        )
+        selected_action = self.actioner.take_action(
+            actions=actions, safe_info=safe_info, unsafe_info=unsafe_info
+        )

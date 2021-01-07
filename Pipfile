@@ -36,3 +36,4 @@ allow_prereleases = true
 [scripts]
 build = "sphinx-build source build"
 auto_build = "sphinx-autobuild source build"
+test = "pytest tests"

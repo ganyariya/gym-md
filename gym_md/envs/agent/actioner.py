@@ -1,11 +1,56 @@
-from typing import List
+"""actioner module. """
+from typing import List, Tuple
+
+from gym_md.envs.setting import Setting
+from gym_md.envs.agent.move_info import MoveInfo
 
 Actions = List[float]
 
 
 class Actioner:
-    def __init__(self):
-        pass
+    """Actioner class.
 
-    def take_action(self, actions: Actions) -> int:
-        pass
+    アクションの配列を受け取り
+    実行するアクションを決定する
+
+    """
+
+    def __init__(self, setting: Setting):
+        self.setting: Setting = setting
+
+    def take_action(
+        self, actions: Actions, safe_info: MoveInfo, unsafe_info: MoveInfo
+    ) -> int:
+        """実行するアクションのIDを決定する.
+
+        Parameters
+        ----------
+        actions: Actions
+            エージェントが出力した各アクションの希望値
+        safe_info: MoveInfo
+            各タイルに移動するための次の座標の辞書
+        unsafe_info
+            各タイルに移動するための次の座標の辞書
+        Returns
+        -------
+        int
+            実行するアクションのID
+        """
+        actions_idx: List[Tuple[float, int]] = [
+            (actions[i], i) for i in range(len(actions))
+        ]
+        actions_idx.sort(key=lambda z: -z[0])
+
+        for value, idx in actions_idx:
+            action_name = self.setting.NUM_TO_ACTION[idx]
+            if "SAFELY" in action_name:
+                to = safe_info[action_name[0]]
+            else:
+                to = unsafe_info[action_name[0]]
+
+            # action_nameを実行できない
+            if to == (-1, -1):
+                continue
+
+            # 実行するアクションのID
+            return idx
