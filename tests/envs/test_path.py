@@ -24,8 +24,8 @@ def test_get_moveinfo(make_pather: Pather):
 
 
 def test_get_distance_and_prev(make_pather: Pather):
-    distance_and_prev_safe = make_pather._get_distance_and_prev(y=Y, x=X, safe=True)
-    distance_and_prev_unsafe = make_pather._get_distance_and_prev(y=Y, x=X, safe=False)
+    distance_and_prev_safe = make_pather.get_distance_and_prev(y=Y, x=X, safe=True)
+    distance_and_prev_unsafe = make_pather.get_distance_and_prev(y=Y, x=X, safe=False)
 
     distance_safe = distance_and_prev_safe[0]
     prev_safe = distance_and_prev_safe[1]

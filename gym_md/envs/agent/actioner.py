@@ -1,8 +1,8 @@
 """actioner module. """
 from typing import List, Tuple
 
-from gym_md.envs.setting import Setting
 from gym_md.envs.agent.move_info import MoveInfo
+from gym_md.envs.setting import Setting
 
 Actions = List[float]
 
@@ -18,7 +18,7 @@ class Actioner:
     def __init__(self, setting: Setting):
         self.setting: Setting = setting
 
-    def take_action(
+    def select_action(
         self, actions: Actions, safe_info: MoveInfo, unsafe_info: MoveInfo
     ) -> int:
         """実行するアクションのIDを決定する.

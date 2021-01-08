@@ -23,6 +23,8 @@ flake8-print = "*"
 tox = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
+rich = "*"
+matplotlib = "*"
 
 [dev-packages]
 sphinx-autobuild = "*"

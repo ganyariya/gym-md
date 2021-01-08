@@ -42,7 +42,7 @@ class Pather:
         """
         dist_and_prev: Final[
             Tuple[List[List[int]], List[List[Point]]]
-        ] = self._get_distance_and_prev(y=y, x=x, safe=safe)
+        ] = self.get_distance_and_prev(y=y, x=x, safe=safe)
         dist: Final[List[List[int]]] = dist_and_prev[0]
         prev: Final[List[List[Point]]] = dist_and_prev[1]
         nearest_info: Final[Dict[str, Point]] = self._get_nearest_info(dist)
@@ -87,7 +87,7 @@ class Pather:
 
         return move_info
 
-    def _get_distance_and_prev(
+    def get_distance_and_prev(
         self, y: int, x: int, safe: bool
     ) -> Tuple[List[List[int]], List[List[Point]]]:
         """座標(y, x)を初期位置としたときの他のマスまでの距離と前のマスを計算する.
