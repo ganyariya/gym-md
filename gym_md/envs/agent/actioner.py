@@ -1,4 +1,4 @@
-"""actioner module. """
+"""actioner module."""
 from typing import List, Tuple
 
 from gym_md.envs.agent.move_info import MoveInfo
@@ -20,7 +20,7 @@ class Actioner:
 
     def select_action(
         self, actions: Actions, safe_info: MoveInfo, unsafe_info: MoveInfo
-    ) -> int:
+    ) -> str:
         """実行するアクションのIDを決定する.
 
         Parameters
@@ -33,7 +33,7 @@ class Actioner:
             各タイルに移動するための次の座標の辞書
         Returns
         -------
-        int
+        str
             実行するアクションのID
         """
         actions_idx: List[Tuple[float, int]] = [
@@ -53,4 +53,4 @@ class Actioner:
                 continue
 
             # 実行するアクションのID
-            return idx
+            return self.setting.NUM_TO_ACTION[idx]

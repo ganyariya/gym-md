@@ -136,6 +136,28 @@ class Pather:
 
         return dist, prev
 
+    def get_nearest_distance(self, dist: List[List[int]]) -> Dict[str, int]:
+        """ある座標(y, x)から種類zのタイルまで最も近い距離d{d:(a,b)}を返す.
+
+        Parameters
+        ----------
+        dist: list of list of int
+            各マスまでの距離
+
+        Returns
+        -------
+        dict of tuple of (str, int)
+            あるタイルの種類zまでの最も近い距離
+        """
+        dist_info: Final[Dict[str, int]] = {
+            c: self.setting.DISTANCE_INF for c in self.setting.GRID_CHARACTERS
+        }
+        for i in range(self.grid.H):
+            for j in range(self.grid.W):
+                gtype = self.setting.NUM_TO_CHARACTER[self.grid[i, j]]
+                dist_info[gtype] = min(dist_info[gtype], dist[i][j])
+        return dist_info
+
     def _get_nearest_info(self, dist: List[List[int]]) -> Dict[str, Point]:
         """ある座標(y, x)から種類zのタイルまでの最も近い位置を格納する{z:(a, b)}を返す.
 

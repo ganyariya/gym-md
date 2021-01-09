@@ -2,9 +2,10 @@
 from os import path
 from typing import Final, List
 
+from PIL import Image
+
 from gym_md.envs.agent.agent import Agent
 from gym_md.envs.grid import Grid
-from PIL import Image
 
 tiles_dir = path.join(path.dirname(__file__), path.pardir, "tiles")
 tiles_names: Final[List[str]] = [

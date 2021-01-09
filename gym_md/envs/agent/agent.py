@@ -28,7 +28,7 @@ class Agent:
         self.y: int = init_pos[0]
         self.x: int = init_pos[1]
 
-    def select_action(self, actions: Actions) -> int:
+    def select_action(self, actions: Actions) -> str:
         """行動を選択する.
 
         Notes
@@ -46,7 +46,7 @@ class Agent:
 
         Returns
         -------
-        int
+        str
             選択した行動IDを返す
         """
         safe_info: Final[MoveInfo] = self.path.get_moveinfo(
@@ -55,12 +55,12 @@ class Agent:
         unsafe_info: Final[MoveInfo] = self.path.get_moveinfo(
             y=self.y, x=self.x, safe=False
         )
-        selected_action: Final[int] = self.actioner.select_action(
+        selected_action: Final[str] = self.actioner.select_action(
             actions=actions, safe_info=safe_info, unsafe_info=unsafe_info
         )
         return selected_action
 
-    def take_action(self, action: int) -> None:
+    def take_action(self, action: str) -> None:
         """選択された行動を実行する.
 
         - 移動を行う
@@ -73,7 +73,7 @@ class Agent:
 
         Parameters
         ----------
-        action: int
+        action: str
             選択済み行動ID
         """
         safe_info: Final[MoveInfo] = self.path.get_moveinfo(
@@ -82,12 +82,11 @@ class Agent:
         unsafe_info: Final[MoveInfo] = self.path.get_moveinfo(
             y=self.y, x=self.x, safe=False
         )
-        action_name = self.setting.NUM_TO_ACTION[action]
 
-        if "SAFELY" in action_name:
-            to = safe_info[action_name[0]]
+        if "SAFELY" in action:
+            to = safe_info[action[0]]
         else:
-            to = unsafe_info[action_name[0]]
+            to = unsafe_info[action[0]]
 
         self.y, self.x = to
         self._be_influenced(y=self.y, x=self.x)

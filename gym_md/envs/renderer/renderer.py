@@ -2,10 +2,11 @@
 from typing import Final
 
 import matplotlib.pyplot as plt
+from PIL import Image
+
 from gym_md.envs.agent.agent import Agent
 from gym_md.envs.grid import Grid
 from gym_md.envs.renderer.generator import Generator
-from PIL import Image
 
 PAUSE_SECONDS: Final[float] = 0.05
 
