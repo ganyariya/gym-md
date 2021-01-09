@@ -1,3 +1,5 @@
 # gym-md
 
-This is gym-md.
+
+
+[Japanese README is here.](japan/README.md)
