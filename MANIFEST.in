@@ -1,2 +1,4 @@
 include README.md
+include gym_md/envs/props/*.json
+include gym_md/envs/stages/*.txt
 include gym_md/envs/tiles/*.png
