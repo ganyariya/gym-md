@@ -4,7 +4,7 @@
 このMiniDungeonsはChristoffer Holmgårdらによって開発されたゲームです。
 詳しい説明は[Antonios Liap](http://antoniosliapis.com/projects/project_minidungeons.php)のページにあります。
 
-![](/README/japan/screen.png)
+<img src="/README/japan/screen.png" width="200px">
 
 # How to Install
 
