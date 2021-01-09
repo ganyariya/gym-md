@@ -3,12 +3,13 @@ from collections import defaultdict
 from typing import DefaultDict, Final, List, Tuple
 
 import gym
+from PIL import Image
+
 from gym_md.envs.agent.actioner import Actions
 from gym_md.envs.agent.agent import Agent
 from gym_md.envs.grid import Grid
 from gym_md.envs.renderer.renderer import Renderer
 from gym_md.envs.setting import Setting
-from PIL import Image
 
 
 class MdEnvBase(gym.Env):
@@ -201,3 +202,11 @@ class MdEnvBase(gym.Env):
             return
         if self.grid[y, x] in [C["P"], C["M"], C["T"]]:
             self.grid[y, x] = C["."]
+
+
+class TestMdEnv(MdEnvBase):
+    """TestMdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "test"
+        super(TestMdEnv, self).__init__(stage_name=stage_name)
