@@ -1,8 +1,8 @@
 # gym-md
 
-`gym-md`は[MiniDungeons](http://minidungeons.com/)と呼ばれるダンジョンゲームを`OpenAI Gym`に移植したものです。
-このMiniDungeonsはChristoffer Holmgårdらによって開発されたゲームです。
-詳しい説明は[Antonios Liap](http://antoniosliapis.com/projects/project_minidungeons.php)のページにあります。
+`gym-md`は[MiniDungeons](http://minidungeons.com/)と呼ばれるダンジョンゲームを`OpenAI Gym`に移植したものです。  
+このMiniDungeonsはChristoffer Holmgårdらによって開発されたゲームです。  
+詳しい説明は[Antonios Liap](http://antoniosliapis.com/projects/project_minidungeons.php)のページにあります。  
 
 <p align="center">
     <img src="/README/japan/screen.png" width="200px">
@@ -62,6 +62,16 @@ for _ in range(TRY_OUT):
     print(reward_sum)
 ```
 
-# Attributes
+# Schemes
 
-# Stages
+`env`環境はエージェントからの入力として、長さが8のfloatの配列を行動として受け取ります。
+それぞれ以下を表しています。
+
+`env`環境はエージェントへの出力として、長さが8の配列を状態として渡します。
+それぞれ以下を表しています。
+
+# ステージと設定
+
+## リスト
+## カスタム
+
