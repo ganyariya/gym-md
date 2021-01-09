@@ -14,7 +14,6 @@ class Agent:
 
     エージェントクラス．
     Pather, Actionerを持つ．
-
     """
 
     def __init__(self, grid: Grid, setting: Setting):
@@ -23,8 +22,20 @@ class Agent:
         self.path: Final[Pather] = Pather(grid=grid, setting=setting)
         self.actioner: Final[Actioner] = Actioner(setting=setting)
         self.hp: int = setting.PLAYER_MAX_HP
+        self.y: int = -1
+        self.x: int = -1
+        self.reset()
 
-        init_pos: Point = self._init_player_pos()
+    def reset(self) -> None:
+        """エージェントの初期化をする.
+
+        Notes
+        -----
+        リセット形式にしている．
+        これは，一回一回Agentインスタンスを作ると，rendererなどの参照とずれてしまうため
+        """
+        self.hp = self.setting.PLAYER_MAX_HP
+        init_pos: Final[Point] = self._init_player_pos()
         self.y: int = init_pos[0]
         self.x: int = init_pos[1]
 

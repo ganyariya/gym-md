@@ -33,14 +33,21 @@ class Grid:
     """
 
     def __init__(self, stage_name: str, setting: Setting) -> None:
-        texts = Grid.read_grid_as_list_from_stage_name(stage_name)
+        self.texts: Final[List[str]] = Grid.read_grid_as_list_from_stage_name(
+            stage_name
+        )
         self.setting: Final[Setting] = setting
-        self.H: Final[int] = len(texts)
-        self.W: Final[int] = len(texts[0])
+        self.H: Final[int] = len(self.texts)
+        self.W: Final[int] = len(self.texts[0])
         self.g: Final[List[List[int]]] = [[0] * self.W for _ in range(self.H)]
+
+        self.reset()
+
+    def reset(self) -> None:
+        """ステージのリセットをする."""
         for i in range(self.H):
             for j in range(self.W):
-                self[i, j] = self.setting.CHARACTER_TO_NUM[texts[i][j]]
+                self[i, j] = self.setting.CHARACTER_TO_NUM[self.texts[i][j]]
 
     def __getitem__(self, t: Point) -> int:
         """ある座標の状態を返す.

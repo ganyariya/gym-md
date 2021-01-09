@@ -31,8 +31,8 @@ class MdEnvBase(gym.Env):
 
     def reset(self) -> None:
         """環境をリセットする."""
-        self.grid = Grid(self.stage_name, self.setting)
-        self.agent = Agent(self.grid, self.setting)
+        self.grid.reset()
+        self.agent.reset()
         self.info = defaultdict(int)
 
     def step(
