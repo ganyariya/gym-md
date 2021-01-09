@@ -2,4 +2,4 @@
 
 
 
-[Japanese README is here.](japan/README.md)
+[Japanese README is here.](README/japan/README.md)
