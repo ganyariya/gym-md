@@ -110,5 +110,4 @@ env環境は、このうち最大の値を持つエージェントの行動を�
 
 |名前|イメージ|
 |:-:|:-:|
-|Test|![](/README/resources/screen.png)|
-
+|Test|<p align="center"> <img src="/README/resources/screen.png" width="200px"></p>| 
