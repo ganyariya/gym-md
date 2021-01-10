@@ -2,7 +2,7 @@
 
 `gym-md`は[MiniDungeons](http://minidungeons.com/)と呼ばれるダンジョンゲームを`OpenAI Gym`に移植したものです。  
 このMiniDungeonsはChristoffer Holmgårdらによって開発されたゲームです。  
-詳しい説明は[Antonios Liap](http://antoniosliapis.com/projects/project_minidungeons.php)のページにあります。  
+詳しい説明は[Antonios Liap](http://antoniosliapis.com/projects/project_minidungeons.php)のページをご参照ください。  
 
 <p align="center">
     <img src="/README/resources/screen.png" width="200px">
