@@ -5,7 +5,7 @@
 詳しい説明は[Antonios Liap](http://antoniosliapis.com/projects/project_minidungeons.php)のページにあります。  
 
 <p align="center">
-    <img src="/README/japan/screen.png" width="200px">
+    <img src="/README/resources/screen.png" width="200px">
 </p>
 
 # How to Install
@@ -29,7 +29,7 @@ pipenv run build
 # test
 pipenv run test
 
-# tox (you have to `pipenv install` before tox)
+# tox (you have to `pipenv install` beforehand)
 tox
 ```
 
@@ -64,14 +64,51 @@ for _ in range(TRY_OUT):
 
 # Schemes
 
-`env`環境はエージェントからの入力として、長さが8のfloatの配列を行動として受け取ります。  
+エージェントは`env`環境から状態として、長さが8のintの配列を受け取ります。
 それぞれ以下を表しています。  
 
-`env`環境はエージェントへの出力として、長さが8の配列を状態として渡します。  
+- エージェントの体力
+- モンスターまでの距離
+- 宝物までの距離
+- 宝物までの距離（モンスターを避ける）
+- ポーションまでの距離
+- ポーションまでの距離（モンスターを避ける）
+- 出口までの距離
+- 出口までの距離（モンスターを避ける）
+
+エージェントは`env`環境に行動として、長さが7のfloatの配列を出力します。  
 それぞれ以下を表しています。  
+env環境は、このうち最大の値を持つエージェントの行動を選択します。  
+しかし、その行動がステージの状態を考慮すると動作できない場合は、次に大きい値の行動を選択することを繰り返します。
+
+たとえば、もし`宝物に向かう`が最大だったとしてもステージに宝物がなければ向かうことができません。よって、その場合は次に大きい値の行動を環境が自動で選択します。
+
+- モンスターに向かう
+- 宝物に向かう
+- 宝物に向かう（モンスターを避ける）
+- ポーションに向かう
+- ポーションに向かう（モンスターを避ける）
+- 出口に向かう
+- 出口に向かう（モンスターを避ける）
+
+<p align="center">
+    <img src="/README/resources/schema.png" width="200px">
+</p>
 
 # ステージと設定
 
+ステージは`MdEnvBase`クラスを継承したクラスを作成することで作ることができます。  
+具体的には、ソースコードの`TestMdEnv`クラスを参照ください。  
+また、設定したステージの名前に対応した`jsonファイル`ならびに`txtファイル`を設定する必要があります。  
+`test.json`, `test.txt`ファイルを参考にしてください。
+また、その後`gym_md.__init__.py`と`gym_md.envs.__init__.py`に追加ステージの設定を行う必要があります。  
+
 ## リスト
-## カスタム
+
+以下はすでに設定されているステージです。
+設定については各ステージの`stage_name.json`をご確認ください。
+
+|名前|イメージ|
+|:-:|:-:|
+|Test|![](/README/japan/resources/screen.png)|
 
