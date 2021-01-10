@@ -110,5 +110,5 @@ env環境は、このうち最大の値を持つエージェントの行動を�
 
 |名前|イメージ|
 |:-:|:-:|
-|Test|![](/README/japan/resources/screen.png)|
+|Test|![](/README/resources/screen.png)|
 
