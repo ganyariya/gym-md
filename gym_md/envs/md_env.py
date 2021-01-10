@@ -26,7 +26,7 @@ class MdEnvBase(gym.Env):
         self.setting: Final[Setting] = Setting(self.stage_name)
         self.grid: Grid = Grid(self.stage_name, self.setting)
         self.agent: Agent = Agent(self.grid, self.setting)
-        self.renderer: Final[Renderer] = Renderer(self.grid, self.agent)
+        self.renderer: Final[Renderer] = Renderer(self.grid, self.agent, self.setting)
         self.info: DefaultDict[str, int] = defaultdict(int)
 
     def reset(self) -> None:

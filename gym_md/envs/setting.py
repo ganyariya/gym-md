@@ -83,6 +83,7 @@ class Setting(Singleton):
         self.ENEMY_POWER: Final[int] = s["ENEMY_POWER"]
         self.PORTION_POWER: Final[int] = s["PORTION_POWER"]
         self.DISTANCE_INF: Final[int] = s["DISTANCE_INF"]
+        self.RENDER_WAIT_TIME: Final[int] = s["RENDER_WAIT_TIME"]
         self.REWARDS: Final[Dict[str, int]] = s["REWARDS"]
 
     @staticmethod

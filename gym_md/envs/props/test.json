@@ -3,6 +3,7 @@
   "ENEMY_POWER": 10,
   "PORTION_POWER": 10,
   "DISTANCE_INF": 1000,
+  "RENDER_WAIT_TIME": 0.05,
   "REWARDS": {
     "TURN": 1,
     "EXIT": 20,
