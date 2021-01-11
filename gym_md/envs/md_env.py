@@ -2,6 +2,7 @@
 from collections import defaultdict
 from typing import DefaultDict, Final, List, Tuple
 
+import numpy
 import gym
 from PIL import Image
 
@@ -28,6 +29,10 @@ class MdEnvBase(gym.Env):
         self.agent: Agent = Agent(self.grid, self.setting)
         self.renderer: Final[Renderer] = Renderer(self.grid, self.agent, self.setting)
         self.info: DefaultDict[str, int] = defaultdict(int)
+        self.action_space = gym.spaces.Box(low=-1, high=1, shape=(7,))
+        self.observation_space = gym.spaces.Box(
+            low=0, high=30, shape=(8,), dtype=numpy.int32
+        )
 
     def reset(self) -> None:
         """環境をリセットする."""
