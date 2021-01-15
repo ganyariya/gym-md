@@ -1,7 +1,11 @@
 """gym-md init module."""
-__version__ = "0.2.0"
+__version__ = "0.2.1"
+
+from logging import NullHandler, getLogger
 
 from gym.envs.registration import register
+
+getLogger(__name__).addHandler(NullHandler())
 
 register(
     id="md-base-v0",
