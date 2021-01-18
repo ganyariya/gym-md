@@ -2,8 +2,8 @@
 from collections import defaultdict
 from typing import DefaultDict, Final, List, Tuple
 
-import numpy
 import gym
+import numpy
 from PIL import Image
 
 from gym_md.envs.agent.actioner import Actions
@@ -34,11 +34,12 @@ class MdEnvBase(gym.Env):
             low=0, high=30, shape=(8,), dtype=numpy.int32
         )
 
-    def reset(self) -> None:
+    def reset(self) -> List[int]:
         """環境をリセットする."""
         self.grid.reset()
         self.agent.reset()
         self.info = defaultdict(int)
+        return self._get_observation()
 
     def step(
         self, actions: Actions
