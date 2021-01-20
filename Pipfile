@@ -9,8 +9,6 @@ pydantic = "*"
 pytype = "*"
 pytest = "*"
 gym = "*"
-wheel = "*"
-twine = "*"
 numpy = "*"
 flake8 = "*"
 black = "*"
@@ -28,6 +26,8 @@ matplotlib = "*"
 
 [dev-packages]
 sphinx-autobuild = "*"
+wheel = "*"
+twine = "*"
 
 [requires]
 python_version = "3.8"
