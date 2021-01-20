@@ -2,4 +2,4 @@
 
 使用したいEnvをインポートする．
 """
-from gym_md.envs.md_env import MdEnvBase, TestMdEnv
+from gym_md.envs.md_env import MdEnvBase, TestMdEnv, EdgeMdEnv

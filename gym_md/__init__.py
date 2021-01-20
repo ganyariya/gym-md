@@ -15,3 +15,7 @@ register(
     id="md-test-v0",
     entry_point="gym_md.envs:TestMdEnv",
 )
+register(
+    id="md-edge-v0",
+    entry_point="gym_md.envs:EdgeMdEnv",
+)
