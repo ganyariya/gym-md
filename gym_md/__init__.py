@@ -1,5 +1,5 @@
 """gym-md init module."""
-__version__ = "0.2.4"
+__version__ = "0.2.5"
 
 from logging import NullHandler, getLogger
 
@@ -18,4 +18,8 @@ register(
 register(
     id="md-edge-v0",
     entry_point="gym_md.envs:EdgeMdEnv",
+)
+register(
+    id="md-hard-v0",
+    entry_point="gym_md.envs:HardMdEnv",
 )

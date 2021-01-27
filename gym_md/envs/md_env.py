@@ -224,3 +224,11 @@ class EdgeMdEnv(MdEnvBase):
     def __init__(self):
         stage_name: Final[str] = "edge"
         super(EdgeMdEnv, self).__init__(stage_name=stage_name)
+
+
+class HardMdEnv(MdEnvBase):
+    """HardMdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "hard"
+        super(HardMdEnv, self).__init__(stage_name=stage_name)

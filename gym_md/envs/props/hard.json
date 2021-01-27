@@ -1,0 +1,15 @@
+{
+  "PLAYER_MAX_HP": 30,
+  "ENEMY_POWER": 10,
+  "PORTION_POWER": 10,
+  "DISTANCE_INF": 1000,
+  "RENDER_WAIT_TIME": 0.05,
+  "REWARDS": {
+    "TURN": 1,
+    "EXIT": 20,
+    "KILL": 4,
+    "TREASURE": 3,
+    "PORTION": 1,
+    "DEAD": -20
+  }
+}
