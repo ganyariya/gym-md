@@ -23,3 +23,11 @@ register(
     id="md-hard-v0",
     entry_point="gym_md.envs:HardMdEnv",
 )
+register(
+    id="md-random_1-v0",
+    entry_point="gym_md.envs:Random1MdEnv",
+)
+register(
+    id="md-random_2-v0",
+    entry_point="gym_md.envs:Random2MdEnv",
+)

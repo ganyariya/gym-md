@@ -232,3 +232,19 @@ class HardMdEnv(MdEnvBase):
     def __init__(self):
         stage_name: Final[str] = "hard"
         super(HardMdEnv, self).__init__(stage_name=stage_name)
+
+
+class Random1MdEnv(MdEnvBase):
+    """Random1Env Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "random_1"
+        super(Random1MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Random2MdEnv(MdEnvBase):
+    """Random1Env Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "random_2"
+        super(Random2MdEnv, self).__init__(stage_name=stage_name)
