@@ -8,6 +8,7 @@ import json
 from os import path
 from typing import Dict, Final, List
 
+from gym_md.envs import definition
 from gym_md.envs.singleton import Singleton
 
 
@@ -31,36 +32,9 @@ class Setting(Singleton):
 
     def __init__(self, stage_name: str):
         self.STAGE_NAME: Final[str] = stage_name
-        self.GRID_CHARACTERS: Final[List[str]] = [
-            ".",
-            "#",
-            "T",
-            "P",
-            "M",
-            "E",
-            "S",
-            "A",
-        ]
-        self.OBSERVATIONS: Final[List[str]] = [
-            "MONSTER",
-            "TREASURE",
-            "TREASURE_SAFELY",
-            "PORTION",
-            "PORTION_SAFELY",
-            "EXIT",
-            "EXIT_SAFELY",
-            "HP",
-        ]
-        self.ACTIONS: Final[List[str]] = [
-            "MONSTER",
-            "TREASURE",
-            "TREASURE_SAFELY",
-            "PORTION",
-            "PORTION_SAFELY",
-            "EXIT",
-            "EXIT_SAFELY",
-        ]
-
+        self.GRID_CHARACTERS: Final[List[str]] = definition.GRID_CHARACTERS
+        self.OBSERVATIONS: Final[List[str]] = definition.OBSERVATIONS
+        self.ACTIONS: Final[List[str]] = definition.ACTIONS
         self.CHARACTER_TO_NUM: Final[Dict[str, int]] = Setting.list_to_dict(
             self.GRID_CHARACTERS
         )
