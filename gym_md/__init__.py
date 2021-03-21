@@ -31,3 +31,8 @@ register(
     id="md-random_2-v0",
     entry_point="gym_md.envs:Random2MdEnv",
 )
+for i in range(2):
+    register(
+        id=f"md-gene_{i + 1}-v0",
+        entry_point=f"gym_md.envs:Gene{i + 1}MdEnv",
+    )

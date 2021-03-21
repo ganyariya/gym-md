@@ -9,4 +9,6 @@ from gym_md.envs.md_env import (
     HardMdEnv,
     Random1MdEnv,
     Random2MdEnv,
+    Gene1MdEnv,
+    Gene2MdEnv,
 )

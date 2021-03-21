@@ -34,7 +34,7 @@ stage_name: str = input("stage_name: ").rstrip()
 stages_dir: str = path.join(path.dirname(__file__), "..", "envs", "stages")
 dp: List[List[str]] = [["?"] * W for _ in range(H)]
 
-weight = [100, 60, 40, 40, 30]
+weight = [100, 60, 20, 20, 15]
 for i in range(H):
     for j in range(W):
         dp[i][j] = characters[roulette(weight)]

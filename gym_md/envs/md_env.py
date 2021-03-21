@@ -248,3 +248,19 @@ class Random2MdEnv(MdEnvBase):
     def __init__(self):
         stage_name: Final[str] = "random_2"
         super(Random2MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Gene1MdEnv(MdEnvBase):
+    """Random1Env Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "gene_1"
+        super(Gene1MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Gene2MdEnv(MdEnvBase):
+    """Random1Env Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "gene_2"
+        super(Gene2MdEnv, self).__init__(stage_name=stage_name)
