@@ -102,6 +102,12 @@ class Agent:
         self.y, self.x = to
         self._be_influenced(y=self.y, x=self.x)
 
+    def is_dead(self) -> bool:
+        return self.hp <= 0
+
+    def is_exited(self) -> bool:
+        return self.grid[self.y, self.x] == self.setting.CHARACTER_TO_NUM["E"]
+
     def _be_influenced(self, y: int, x: int) -> None:
         """移動したプレイヤーに影響を与える.
 
