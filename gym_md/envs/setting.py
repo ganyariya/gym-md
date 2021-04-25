@@ -59,6 +59,17 @@ class Setting(Singleton):
         self.DISTANCE_INF: Final[int] = s["DISTANCE_INF"]
         self.RENDER_WAIT_TIME: Final[int] = s["RENDER_WAIT_TIME"]
         self.REWARDS: Final[Dict[str, int]] = s["REWARDS"]
+        self.ORIGINAL_REWARDS: Final[Dict[str, int]] = s["REWARDS"]
+
+    def change_reward_values(self, rewards: Dict[str, int]) -> None:
+        """報酬を変更する.
+
+        Parameters
+        ----------
+        rewards: dict of (str, int)
+        """
+        for key, value in rewards.items():
+            self.REWARDS[key] = value
 
     @staticmethod
     def read_settings(stage_name: str) -> dict:

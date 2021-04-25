@@ -1,6 +1,6 @@
 """md-env module."""
 from collections import defaultdict
-from typing import DefaultDict, Final, List, Tuple
+from typing import DefaultDict, Final, List, Tuple, Dict
 
 import gym
 import numpy
@@ -105,6 +105,10 @@ class MdEnvBase(gym.Env):
         None
         """
         self.reset()
+
+    def change_reward_values(self, rewards: Dict[str, int]) -> None:
+        """報酬を変更する."""
+        self.setting.change_reward_values(rewards)
 
     def is_clear(self) -> bool:
         """クリアしたか.
