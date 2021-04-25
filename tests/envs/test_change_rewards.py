@@ -4,7 +4,8 @@ from gym_md.envs.md_env import MdEnvBase
 
 def test_change_rewards(make_gym: MdEnvBase):
     # test.json
-    assert make_gym.setting.REWARDS["KILL"] == 4
+    KILL = 4
+    assert make_gym.setting.REWARDS["KILL"] == KILL
 
     rewards = {
         "TURN": -1,
@@ -20,3 +21,11 @@ def test_change_rewards(make_gym: MdEnvBase):
     assert make_gym.setting.REWARDS["KILL"] == -1
     assert make_gym.grid.setting.REWARDS["KILL"] == -1
     assert make_gym.agent.path.setting.REWARDS["KILL"] == -1
+
+    # restore
+    make_gym.restore_reward_values()
+    assert make_gym.setting.REWARDS["KILL"] == KILL
+    assert make_gym.grid.setting.REWARDS["KILL"] == KILL
+    assert make_gym.agent.path.setting.REWARDS["KILL"] == KILL
+
+    assert id(make_gym.setting.REWARDS) == id(make_gym.grid.setting.REWARDS)

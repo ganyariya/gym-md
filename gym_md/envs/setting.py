@@ -5,6 +5,7 @@
 
 """
 import json
+from copy import deepcopy
 from os import path
 from typing import Dict, Final, List
 
@@ -58,8 +59,8 @@ class Setting(Singleton):
         self.PORTION_POWER: Final[int] = s["PORTION_POWER"]
         self.DISTANCE_INF: Final[int] = s["DISTANCE_INF"]
         self.RENDER_WAIT_TIME: Final[int] = s["RENDER_WAIT_TIME"]
-        self.REWARDS: Final[Dict[str, int]] = s["REWARDS"]
-        self.ORIGINAL_REWARDS: Final[Dict[str, int]] = s["REWARDS"]
+        self.REWARDS: Final[Dict[str, int]] = deepcopy(s["REWARDS"])
+        self.ORIGINAL_REWARDS: Final[Dict[str, int]] = deepcopy(s["REWARDS"])
 
     def change_reward_values(self, rewards: Dict[str, int]) -> None:
         """報酬を変更する.
@@ -69,6 +70,10 @@ class Setting(Singleton):
         rewards: dict of (str, int)
         """
         for key, value in rewards.items():
+            self.REWARDS[key] = value
+
+    def restore_reward_values(self):
+        for key, value in self.ORIGINAL_REWARDS.items():
             self.REWARDS[key] = value
 
     @staticmethod

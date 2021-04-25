@@ -110,6 +110,9 @@ class MdEnvBase(gym.Env):
         """報酬を変更する."""
         self.setting.change_reward_values(rewards)
 
+    def restore_reward_values(self) -> None:
+        self.setting.restore_reward_values()
+
     def is_clear(self) -> bool:
         """クリアしたか.
 
