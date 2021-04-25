@@ -42,7 +42,7 @@ class MdEnvBase(gym.Env):
         return self._get_observation()
 
     def step(
-        self, actions: Actions
+            self, actions: Actions
     ) -> Tuple[List[int], int, bool, DefaultDict[str, int]]:
         """エージェントが1ステップ行動する.
 
@@ -106,6 +106,19 @@ class MdEnvBase(gym.Env):
         """
         self.reset()
 
+    def is_clear(self) -> bool:
+        """クリアしたか.
+
+        以下の2条件を満たす場合
+        - エージェントが死んでいない
+        - エージェントがゴールに到達した
+
+        Returns
+        -------
+        bool
+        """
+        return not self.agent.is_dead() and self.agent.is_exited()
+
     def _get_reward(self) -> int:
         """報酬を計算する.
 
@@ -132,7 +145,7 @@ class MdEnvBase(gym.Env):
         return ret
 
     def _get_info(
-        self, info: DefaultDict[str, int], action: str
+            self, info: DefaultDict[str, int], action: str
     ) -> DefaultDict[str, int]:
         """プレイデータの取得.
 
@@ -184,12 +197,12 @@ class MdEnvBase(gym.Env):
         -------
         bool
         """
-        y, x = self.agent.y, self.agent.x
-        if self.agent.hp <= 0:
-            return True
-        if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["E"]:
-            return True
-        return False
+        return self.agent.is_exited() or self.agent.is_dead()
+        # if self.agent.hp <= 0:
+        #     return True
+        # if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["E"]:
+        #     return True
+        # return False
 
     def _update_grid(self) -> None:
         """グリッドの状態を更新する.
