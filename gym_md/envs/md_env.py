@@ -42,7 +42,7 @@ class MdEnvBase(gym.Env):
         return self._get_observation()
 
     def step(
-            self, actions: Actions
+        self, actions: Actions
     ) -> Tuple[List[int], int, bool, DefaultDict[str, int]]:
         """エージェントが1ステップ行動する.
 
@@ -152,7 +152,7 @@ class MdEnvBase(gym.Env):
         return ret
 
     def _get_info(
-            self, info: DefaultDict[str, int], action: str
+        self, info: DefaultDict[str, int], action: str
     ) -> DefaultDict[str, int]:
         """プレイデータの取得.
 
