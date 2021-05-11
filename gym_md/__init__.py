@@ -1,5 +1,5 @@
 """gym-md init module."""
-__version__ = "0.3.0"
+__version__ = "0.4.0"
 
 from logging import NullHandler, getLogger
 
@@ -35,4 +35,14 @@ for i in range(2):
     register(
         id=f"md-gene_{i + 1}-v0",
         entry_point=f"gym_md.envs:Gene{i + 1}MdEnv",
+    )
+for i in range(5):
+    register(
+        id=f"md-strand_{i + 1}-v0",
+        entry_point=f"gym_md.envs:Strand{i + 1}MdEnv",
+    )
+for i in range(3):
+    register(
+        id=f"md-check_{i + 1}-v0",
+        entry_point=f"gym_md.envs:Check{i + 1}MdEnv",
     )

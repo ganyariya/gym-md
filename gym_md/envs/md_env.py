@@ -264,3 +264,67 @@ class Gene2MdEnv(MdEnvBase):
     def __init__(self):
         stage_name: Final[str] = "gene_2"
         super(Gene2MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Strand1MdEnv(MdEnvBase):
+    """Strand1MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "strand_1"
+        super(Strand1MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Strand2MdEnv(MdEnvBase):
+    """Strand2MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "strand_2"
+        super(Strand2MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Strand3MdEnv(MdEnvBase):
+    """Strand3MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "strand_3"
+        super(Strand3MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Strand4MdEnv(MdEnvBase):
+    """Strand4MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "strand_4"
+        super(Strand4MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Strand5MdEnv(MdEnvBase):
+    """Strand5MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "strand_5"
+        super(Strand5MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Check1MdEnv(MdEnvBase):
+    """Check1MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "check_1"
+        super(Check1MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Check2MdEnv(MdEnvBase):
+    """Check2MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "check_2"
+        super(Check2MdEnv, self).__init__(stage_name=stage_name)
+
+
+class Check3MdEnv(MdEnvBase):
+    """Check3MdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "check_3"
+        super(Check3MdEnv, self).__init__(stage_name=stage_name)
