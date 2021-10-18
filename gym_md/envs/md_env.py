@@ -1,6 +1,6 @@
 """md-env module."""
 from collections import defaultdict
-from typing import DefaultDict, Final, List, Tuple, Dict
+from typing import DefaultDict, Dict, Final, List, Tuple
 
 import gym
 import numpy

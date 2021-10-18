@@ -1,5 +1,5 @@
 """renderer module."""
-from typing import Final
+from typing import Final, Optional
 
 import matplotlib.pyplot as plt
 from PIL import Image
@@ -19,19 +19,20 @@ class Renderer:
         self.generator: Final[Generator] = Generator(grid=grid, agent=agent)
         self.setting: Final[Setting] = setting
 
-    def render(self, mode="human") -> Image:
+    def render(self, mode="human", wait_time: Optional[float] = None) -> Image:
         """可視化を提供する.
 
         Parameters
         ----------
         mode: str
+        wait_time: Optional[float]
 
         Returns
         -------
         Image or None
         """
         if mode == "human":
-            return self._render_human(mode)
+            return self._render_human(mode, wait_time)
 
     def generate(self, mode="human") -> Image:
         """画像を生成して返す.
@@ -47,9 +48,12 @@ class Renderer:
         if mode == "human":
             return self.generator.generate()
 
-    def _render_human(self, mode="human") -> Image:
+    def _render_human(self, mode="human", wait_time: Optional[float] = None) -> Image:
         img = self.generate(mode=mode)
         plt.imshow(img)
-        plt.pause(self.setting.RENDER_WAIT_TIME)
+        if wait_time is None:
+            plt.pause(self.setting.RENDER_WAIT_TIME)
+        else:
+            plt.pause(wait_time)
         plt.clf()
         return img
