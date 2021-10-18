@@ -8,7 +8,7 @@ def test_change_rewards(make_gym: MdEnvBase):
     assert make_gym.setting.REWARDS["KILL"] == KILL
 
     rewards = {
-        "TURN": -1,
+        "TURN": 10,
         "EXIT": -1,
         "KILL": -1,
         "TREASURE": -1,
@@ -21,6 +21,9 @@ def test_change_rewards(make_gym: MdEnvBase):
     assert make_gym.setting.REWARDS["KILL"] == -1
     assert make_gym.grid.setting.REWARDS["KILL"] == -1
     assert make_gym.agent.path.setting.REWARDS["KILL"] == -1
+    assert make_gym.setting.REWARDS["TURN"] == 10
+    assert make_gym.grid.setting.REWARDS["TURN"] == 10
+    assert make_gym.agent.path.setting.REWARDS["TURN"] == 10
 
     # restore
     make_gym.restore_reward_values()
@@ -29,3 +32,4 @@ def test_change_rewards(make_gym: MdEnvBase):
     assert make_gym.agent.path.setting.REWARDS["KILL"] == KILL
 
     assert id(make_gym.setting.REWARDS) == id(make_gym.grid.setting.REWARDS)
+    assert id(make_gym.setting.REWARDS) == id(make_gym.agent.path.setting.REWARDS)
