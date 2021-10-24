@@ -1,5 +1,5 @@
 """gym-md init module."""
-__version__ = "0.4.5"
+__version__ = "0.4.6"
 
 from logging import NullHandler, getLogger
 
