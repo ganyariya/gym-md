@@ -113,6 +113,10 @@ class MdEnvBase(gym.Env):
     def restore_reward_values(self) -> None:
         self.setting.restore_reward_values()
 
+    def change_player_hp(self, previous_hp: int) -> None:
+        """前回のステージのHPに更新する。"""
+        self.agent.change_player_hp(previous_hp)
+
     def is_clear(self) -> bool:
         """クリアしたか.
 

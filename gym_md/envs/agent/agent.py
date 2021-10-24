@@ -133,6 +133,10 @@ class Agent:
             if self.setting.IS_PLAYER_HP_LIMIT:
                 self.hp = min(self.hp, self.setting.PLAYER_MAX_HP)
 
+    def change_player_hp(self, previous_hp: int) -> None:
+        """前回のステージのHPに更新する。"""
+        self.hp = min(previous_hp, self.setting.PLAYER_MAX_HP)
+
     def _init_player_pos(self) -> Point:
         """プレイヤーの座標を初期化して座標を返す.
 

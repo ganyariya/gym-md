@@ -70,3 +70,10 @@ def test_agent_hp_max_limit(make_agent: Agent) -> None:
     for _ in range(100):
         make_agent.be_influenced(6, 4)
     assert make_agent.hp == make_agent.setting.PLAYER_MAX_HP
+
+
+def test_agent_previous_hp(make_agent: Agent) -> None:
+    assert make_agent.hp == 30
+    previous_hp = 10
+    make_agent.change_player_hp(previous_hp)
+    assert make_agent.hp == previous_hp
