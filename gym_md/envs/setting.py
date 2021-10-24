@@ -10,8 +10,8 @@ from os import path
 from typing import Dict, Final, List
 
 from gym_md.envs import definition
-from gym_md.envs.singleton import Singleton
 from gym_md.envs.config.props_config import PropsConfig, RewardsConfig
+from gym_md.envs.singleton import Singleton
 
 
 class Setting(Singleton):

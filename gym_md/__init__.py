@@ -46,3 +46,8 @@ for i in range(3):
         id=f"md-check_{i + 1}-v0",
         entry_point=f"gym_md.envs:Check{i + 1}MdEnv",
     )
+for i in range(11):
+    register(
+        id=f"md-holmgard_{i}-v0",
+        entry_point=f"gym_md.envs:Holmgard{i}MdEnv",
+    )

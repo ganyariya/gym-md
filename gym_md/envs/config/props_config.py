@@ -1,7 +1,8 @@
 """基本設定."""
 
-from gym_md.envs.config.rewards_config import RewardsConfig
 from pydantic import BaseModel
+
+from gym_md.envs.config.rewards_config import RewardsConfig
 
 
 class PropsConfig(BaseModel):
