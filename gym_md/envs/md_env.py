@@ -126,7 +126,7 @@ class MdEnvBase(gym.Env):
         """
         return not self.agent.is_dead() and self.agent.is_exited()
 
-    def _get_reward(self) -> int:
+    def _get_reward(self) -> float:
         """報酬を計算する.
 
         Returns
@@ -137,18 +137,18 @@ class MdEnvBase(gym.Env):
         """
         R = self.setting.REWARDS
         C = self.setting.CHARACTER_TO_NUM
-        ret: int = -R["TURN"]
+        ret: float = -R.TURN
         y, x = self.agent.y, self.agent.x
         if self.agent.hp <= 0:
-            return ret + R["DEAD"]
+            return ret + R.DEAD
         if self.grid[y, x] == C["T"]:
-            ret += R["TREASURE"]
+            ret += R.TREASURE
         if self.grid[y, x] == C["E"]:
-            ret += R["EXIT"]
+            ret += R.EXIT
         if self.grid[y, x] == C["M"]:
-            ret += R["KILL"]
+            ret += R.KILL
         if self.grid[y, x] == C["P"]:
-            ret += R["PORTION"]
+            ret += R.PORTION
         return ret
 
     def _get_info(
