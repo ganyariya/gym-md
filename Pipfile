@@ -23,6 +23,7 @@ sphinx = "*"
 sphinx-rtd-theme = "*"
 rich = "*"
 matplotlib = "*"
+twine = "*"
 
 [dev-packages]
 sphinx-autobuild = "*"
