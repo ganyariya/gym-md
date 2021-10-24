@@ -56,10 +56,14 @@ class Setting(Singleton):
 
         props_config = Setting.read_settings(stage_name)
         self.PLAYER_MAX_HP: Final[int] = props_config.PLAYER_MAX_HP
-        self.ENEMY_POWER: Final[int] = props_config.ENEMY_POWER
-        self.PORTION_POWER: Final[int] = props_config.PORTION_POWER
-        self.DISTANCE_INF: Final[int] = props_config.DISTANCE_INF
-        self.RENDER_WAIT_TIME: Final[float] = props_config.RENDER_WAIT_TIME
+        self.IS_PLAYER_HP_LIMIT = props_config.IS_PLAYER_HP_LIMIT
+        self.ENEMY_POWER = props_config.ENEMY_POWER
+        self.ENEMY_POWER_MIN = props_config.ENEMY_POWER_MIN
+        self.ENEMY_POWER_MAX = props_config.ENEMY_POWER_MAX
+        self.IS_ENEMY_POWER_RANDOM = props_config.IS_ENEMY_POWER_RANDOM
+        self.PORTION_POWER = props_config.PORTION_POWER
+        self.DISTANCE_INF = props_config.DISTANCE_INF
+        self.RENDER_WAIT_TIME = props_config.RENDER_WAIT_TIME
         self.REWARDS: RewardsConfig = deepcopy(props_config.REWARDS)
         self.ORIGINAL_REWARDS: RewardsConfig = deepcopy(props_config.REWARDS)
 

@@ -1,3 +1,4 @@
+import copy
 from gym_md.envs.agent.agent import Agent
 
 NAME: str = 'test'
@@ -19,3 +20,37 @@ def test_select_action(make_agent: Agent):
     portion_safely_actions = [0, 0, 0, 0, 4, 0, 1]
     portion_safely_but_monster = make_agent.select_action(portion_safely_actions)
     assert portion_safely_but_monster == "EXIT_SAFELY"
+
+
+def test_agent_attacked_by_enemy_random(make_agent: Agent) -> None:
+    attacked_hitpoints = []
+    default_hp = -1
+    for _ in range(1000):
+        agent = copy.deepcopy(make_agent)
+        default_hp = agent.hp
+        agent.be_influenced(8, 0)
+        attacked_hitpoints.append(agent.hp)
+
+    exist_random = False
+    for x in attacked_hitpoints:
+        if x % 10 != 0:
+            exist_random = True
+    assert exist_random
+    assert default_hp - make_agent.setting.ENEMY_POWER_MIN == max(attacked_hitpoints)
+    assert default_hp - make_agent.setting.ENEMY_POWER_MAX == min(attacked_hitpoints)
+
+
+def test_agent_attacked_not_random(make_agent: Agent) -> None:
+    attacked_hitpoints = []
+    for _ in range(100):
+        agent = copy.deepcopy(make_agent)
+        # ランダム攻撃をやめる
+        agent.setting.IS_ENEMY_POWER_RANDOM = False
+        agent.be_influenced(8, 0)
+        attacked_hitpoints.append(agent.hp)
+
+    exist_random = False
+    for x in attacked_hitpoints:
+        if x % 10 != 0:
+            exist_random = True
+    assert not exist_random

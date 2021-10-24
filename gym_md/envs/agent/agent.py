@@ -1,4 +1,5 @@
 """agent module."""
+import random
 from typing import Final
 
 from gym_md.envs.agent.actioner import Actioner, Actions
@@ -100,7 +101,7 @@ class Agent:
             to = unsafe_info[action[0]]
 
         self.y, self.x = to
-        self._be_influenced(y=self.y, x=self.x)
+        self.be_influenced(y=self.y, x=self.x)
 
     def is_dead(self) -> bool:
         return self.hp <= 0
@@ -108,7 +109,7 @@ class Agent:
     def is_exited(self) -> bool:
         return self.grid[self.y, self.x] == self.setting.CHARACTER_TO_NUM["E"]
 
-    def _be_influenced(self, y: int, x: int) -> None:
+    def be_influenced(self, y: int, x: int) -> None:
         """移動したプレイヤーに影響を与える.
 
         体力の増減を行う
@@ -121,7 +122,12 @@ class Agent:
             移動後のx
         """
         if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["M"]:
-            self.hp -= self.setting.ENEMY_POWER
+            attack = self.setting.ENEMY_POWER
+            if self.setting.IS_ENEMY_POWER_RANDOM:
+                attack = random.randint(
+                    self.setting.ENEMY_POWER_MIN, self.setting.ENEMY_POWER_MAX
+                )
+            self.hp -= attack
         if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["P"]:
             self.hp += self.setting.PORTION_POWER
 
