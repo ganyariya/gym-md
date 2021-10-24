@@ -88,7 +88,7 @@ class Grid:
 
         Returns
         -------
-        list
+        list[str]
         """
         file_dir = path.dirname(__file__)
         stage_file = path.join(file_dir, "stages", f"{stage_name}.txt")

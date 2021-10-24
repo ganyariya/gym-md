@@ -10,6 +10,7 @@ from os import path
 from typing import Dict, Final, List
 
 from gym_md.envs import definition
+from gym_md.envs.config.props_config import PropsConfig, RewardsConfig
 from gym_md.envs.singleton import Singleton
 
 
@@ -53,14 +54,18 @@ class Setting(Singleton):
             self.ACTION_TO_NUM
         )
 
-        s: dict = Setting.read_settings(stage_name)
-        self.PLAYER_MAX_HP: Final[int] = s["PLAYER_MAX_HP"]
-        self.ENEMY_POWER: Final[int] = s["ENEMY_POWER"]
-        self.PORTION_POWER: Final[int] = s["PORTION_POWER"]
-        self.DISTANCE_INF: Final[int] = s["DISTANCE_INF"]
-        self.RENDER_WAIT_TIME: Final[int] = s["RENDER_WAIT_TIME"]
-        self.REWARDS: Final[Dict[str, int]] = deepcopy(s["REWARDS"])
-        self.ORIGINAL_REWARDS: Final[Dict[str, int]] = deepcopy(s["REWARDS"])
+        props_config = Setting.read_settings(stage_name)
+        self.PLAYER_MAX_HP: Final[int] = props_config.PLAYER_MAX_HP
+        self.IS_PLAYER_HP_LIMIT = props_config.IS_PLAYER_HP_LIMIT
+        self.ENEMY_POWER = props_config.ENEMY_POWER
+        self.ENEMY_POWER_MIN = props_config.ENEMY_POWER_MIN
+        self.ENEMY_POWER_MAX = props_config.ENEMY_POWER_MAX
+        self.IS_ENEMY_POWER_RANDOM = props_config.IS_ENEMY_POWER_RANDOM
+        self.PORTION_POWER = props_config.PORTION_POWER
+        self.DISTANCE_INF = props_config.DISTANCE_INF
+        self.RENDER_WAIT_TIME = props_config.RENDER_WAIT_TIME
+        self.REWARDS: RewardsConfig = deepcopy(props_config.REWARDS)
+        self.ORIGINAL_REWARDS: RewardsConfig = deepcopy(props_config.REWARDS)
 
     def change_reward_values(self, rewards: Dict[str, int]) -> None:
         """報酬を変更する.
@@ -70,17 +75,18 @@ class Setting(Singleton):
         rewards: dict of (str, int)
         """
         for key, value in rewards.items():
-            self.REWARDS[key] = value
+            setattr(self.REWARDS, key, value)
 
     def restore_reward_values(self):
-        for key, value in self.ORIGINAL_REWARDS.items():
-            self.REWARDS[key] = value
+        for key, value in self.ORIGINAL_REWARDS.dict().items():
+            setattr(self.REWARDS, key, value)
 
     @staticmethod
-    def read_settings(stage_name: str) -> dict:
+    def read_settings(stage_name: str) -> PropsConfig:
         """Read setting corresponding to stage name.
 
         ステージ名にあった設定を読み込む
+        Pydantic で読み込む
 
         Parameters
         ----------
@@ -88,14 +94,15 @@ class Setting(Singleton):
 
         Returns
         -------
-        dict
+        PropsConfig
 
         """
         file_dir = path.dirname(__file__)
         json_path = path.join(file_dir, "props", f"{stage_name}.json")
         with open(json_path, "r") as f:
             data = json.load(f)
-        return data
+            props_config = PropsConfig(**data)
+        return props_config
 
     @staticmethod
     def list_to_dict(arr: list) -> dict:

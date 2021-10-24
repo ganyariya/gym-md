@@ -1,5 +1,5 @@
 """gym-md init module."""
-__version__ = "0.4.3"
+__version__ = "0.4.5"
 
 from logging import NullHandler, getLogger
 
@@ -45,4 +45,9 @@ for i in range(3):
     register(
         id=f"md-check_{i + 1}-v0",
         entry_point=f"gym_md.envs:Check{i + 1}MdEnv",
+    )
+for i in range(11):
+    register(
+        id=f"md-holmgard_{i}-v0",
+        entry_point=f"gym_md.envs:Holmgard{i}MdEnv",
     )
