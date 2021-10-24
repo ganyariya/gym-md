@@ -130,6 +130,8 @@ class Agent:
             self.hp -= attack
         if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["P"]:
             self.hp += self.setting.PORTION_POWER
+            if self.setting.IS_PLAYER_HP_LIMIT:
+                self.hp = min(self.hp, self.setting.PLAYER_MAX_HP)
 
     def _init_player_pos(self) -> Point:
         """プレイヤーの座標を初期化して座標を返す.

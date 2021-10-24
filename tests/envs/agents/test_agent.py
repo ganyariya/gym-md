@@ -54,3 +54,19 @@ def test_agent_attacked_not_random(make_agent: Agent) -> None:
         if x % 10 != 0:
             exist_random = True
     assert not exist_random
+
+
+def test_agent_hp_not_max_limit(make_agent: Agent) -> None:
+    # 制限しない
+    make_agent.setting.IS_PLAYER_HP_LIMIT = False
+    for _ in range(100):
+        make_agent.be_influenced(6, 4)
+    assert make_agent.hp >= 1000
+
+
+def test_agent_hp_max_limit(make_agent: Agent) -> None:
+    # 制限する
+    make_agent.setting.IS_PLAYER_HP_LIMIT = True
+    for _ in range(100):
+        make_agent.be_influenced(6, 4)
+    assert make_agent.hp == make_agent.setting.PLAYER_MAX_HP
