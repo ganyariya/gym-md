@@ -1,4 +1,25 @@
 {
-    "python.formatting.provider": "black",
-    "python.defaultInterpreterPath": "./venv/bin/python"
+	"python.formatting.provider": "black",
+	"python.defaultInterpreterPath": "./venv/bin/python",
+	"files.exclude": {
+		"**/*venv": true,
+		"**/*develo-eggs": true,
+		"**/*eggs": true,
+		"**/*wheels": true,
+		"**/*.egg-info": true,
+		"**/*.egg": true,
+		"**/sdist": true,
+		"**/*.manifest": true,
+		"**/*.spec": true,
+		"**/*.cache": true,
+		"**/*.ipynb_checkpoints": true,
+		"**/profile_default": true,
+		"**/ipython_config.py": true,
+		"**/__pypackages__": true,
+		"**/*dmypy.json": true,
+		"**/*.mypy_cache": true,
+		"**/*.pytest_cache": true,
+		"**/__pycache__": true,
+		"**/.pytype": true
+	}
 }
