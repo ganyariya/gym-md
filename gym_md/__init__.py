@@ -56,3 +56,8 @@ for i in range(11):
         id=f"md-constant-holmgard_{i}-v0",
         entry_point=f"gym_md.envs:ConstantHolmgard{i}MdEnv",
     )
+for i in range(11):
+    register(
+        id=f"md-constant-holmgard-large_{i}-v0",
+        entry_point=f"gym_md.envs:ConstantHolmgardLarge{i}MdEnv",
+    )

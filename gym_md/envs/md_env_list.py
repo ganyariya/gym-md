@@ -298,3 +298,91 @@ class ConstantHolmgard10MdEnv(MdEnvBase):
     def __init__(self):
         stage_name: Final[str] = "ConstantHolmgard_10"
         super(ConstantHolmgard10MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge0MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_0"
+        super(ConstantHolmgardLarge0MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge1MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_1"
+        super(ConstantHolmgardLarge1MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge2MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_2"
+        super(ConstantHolmgardLarge2MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge3MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_3"
+        super(ConstantHolmgardLarge3MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge4MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_4"
+        super(ConstantHolmgardLarge4MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge5MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_5"
+        super(ConstantHolmgardLarge5MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge6MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_6"
+        super(ConstantHolmgardLarge6MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge7MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_7"
+        super(ConstantHolmgardLarge7MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge8MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_8"
+        super(ConstantHolmgardLarge8MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge9MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_9"
+        super(ConstantHolmgardLarge9MdEnv, self).__init__(stage_name=stage_name)
+
+
+class ConstantHolmgardLarge10MdEnv(MdEnvBase):
+    """Constant Holmgard Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "ConstantHolmgardLarge_10"
+        super(ConstantHolmgardLarge10MdEnv, self).__init__(stage_name=stage_name)
