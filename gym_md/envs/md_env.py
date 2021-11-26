@@ -1,6 +1,7 @@
 """md-env module."""
 from collections import defaultdict
 from typing import DefaultDict, Dict, Final, List, Tuple
+from random import Random
 
 import gym
 import numpy
@@ -23,10 +24,11 @@ class MdEnvBase(gym.Env):
     metadata = {"render.modes": ["human"]}
 
     def __init__(self, stage_name: str):
+        self.random = Random()
         self.stage_name: Final[str] = stage_name
         self.setting: Final[Setting] = Setting(self.stage_name)
         self.grid: Grid = Grid(self.stage_name, self.setting)
-        self.agent: Agent = Agent(self.grid, self.setting)
+        self.agent: Agent = Agent(self.grid, self.setting, self.random)
         self.renderer: Final[Renderer] = Renderer(self.grid, self.agent, self.setting)
         self.info: DefaultDict[str, int] = defaultdict(int)
         self.action_space = gym.spaces.Box(low=-1, high=1, shape=(7,))
@@ -116,6 +118,10 @@ class MdEnvBase(gym.Env):
     def change_player_hp(self, previous_hp: int) -> None:
         """前回のステージのHPに更新する。"""
         self.agent.change_player_hp(previous_hp)
+
+    def set_random_seed(self, seed: int) -> None:
+        """Seed 値を更新する."""
+        self.random.seed(seed)
 
     def is_clear(self) -> bool:
         """クリアしたか.
