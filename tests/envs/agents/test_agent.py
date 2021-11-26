@@ -1,4 +1,6 @@
 import copy
+from random import Random
+
 from gym_md.envs.agent.agent import Agent
 
 NAME: str = 'test'
@@ -25,10 +27,12 @@ def test_select_action(make_agent: Agent):
 def test_agent_attacked_by_enemy_random(make_agent: Agent) -> None:
     attacked_hitpoints = []
     default_hp = -1
+
     for _ in range(1000):
-        agent = copy.deepcopy(make_agent)
-        default_hp = agent.hp
-        agent.be_influenced(8, 0)
+        agent = copy.deepcopy(make_agent) # 体力 40
+        agent.random = Random() # seed 値が同じだと同じ攻撃力になる
+        default_hp = agent.hp # 40 をデフォルトに入れる
+        agent.be_influenced(8, 0) # 戦わせる
         attacked_hitpoints.append(agent.hp)
 
     exist_random = False
@@ -44,6 +48,7 @@ def test_agent_attacked_not_random(make_agent: Agent) -> None:
     attacked_hitpoints = []
     for _ in range(100):
         agent = copy.deepcopy(make_agent)
+        agent.random = Random() # seed 値が同じだと同じ攻撃力になる
         # ランダム攻撃をやめる
         agent.setting.IS_ENEMY_POWER_RANDOM = False
         agent.be_influenced(8, 0)

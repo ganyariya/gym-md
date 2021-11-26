@@ -1,6 +1,6 @@
 """agent module."""
-import random
 from typing import Final
+from random import Random
 
 from gym_md.envs.agent.actioner import Actioner, Actions
 from gym_md.envs.agent.move_info import MoveInfo
@@ -17,11 +17,12 @@ class Agent:
     Pather, Actionerを持つ．
     """
 
-    def __init__(self, grid: Grid, setting: Setting):
+    def __init__(self, grid: Grid, setting: Setting, random: Random):
         self.grid: Final[Grid] = grid
         self.setting: Final[Setting] = setting
+        self.random = random
         self.path: Final[Pather] = Pather(grid=grid, setting=setting)
-        self.actioner: Final[Actioner] = Actioner(setting=setting)
+        self.actioner: Final[Actioner] = Actioner(setting=setting, random=self.random)
         self.hp: int = setting.PLAYER_MAX_HP
         self.y: int = -1
         self.x: int = -1
@@ -124,7 +125,7 @@ class Agent:
         if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["M"]:
             attack = self.setting.ENEMY_POWER
             if self.setting.IS_ENEMY_POWER_RANDOM:
-                attack = random.randint(
+                attack = self.random.randint(
                     self.setting.ENEMY_POWER_MIN, self.setting.ENEMY_POWER_MAX
                 )
             self.hp -= attack
