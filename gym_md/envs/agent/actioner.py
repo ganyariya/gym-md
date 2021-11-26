@@ -39,7 +39,7 @@ class Actioner:
         actions_idx: List[Tuple[float, int]] = [
             (actions[i], i) for i in range(len(actions))
         ]
-        actions_idx.sort(key=lambda z: -z[0])
+        actions_idx.sort(key=lambda z: (-z[0], -z[1]))
 
         for value, idx in actions_idx:
             action_name = self.setting.NUM_TO_ACTION[idx]
