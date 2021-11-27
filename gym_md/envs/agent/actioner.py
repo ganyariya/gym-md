@@ -48,26 +48,16 @@ class Actioner:
         ]
         actions_idx.sort(key=lambda z: (-z[0], -z[1]))
 
-        i, j, n = 0, 0, len(actions_idx)
-        while i < n:
-            while j < n and actions_idx[i][0] == actions_idx[j][0]:
-                j += 1
-            idxs = [k for k in range(i, j)]
-            self.random.shuffle(idxs)
+        for value, idx in actions_idx:
+            action_name = self.setting.NUM_TO_ACTION[idx]
+            if "SAFELY" in action_name:
+                to = safe_info[action_name[0]]
+            else:
+                to = unsafe_info[action_name[0]]
 
-            for k in idxs:
-                action_id = actions_idx[k][1]
-                action_name = self.setting.NUM_TO_ACTION[action_id]
-                if "SAFELY" in action_name:
-                    to = safe_info[action_name[0]]
-                else:
-                    to = unsafe_info[action_name[0]]
+            # action_nameを実行できない
+            if to == (-1, -1):
+                continue
 
-                # action_nameを実行できない
-                if to == (-1, -1):
-                    continue
-
-                # 実行するアクション文字列
-                return self.setting.NUM_TO_ACTION[action_id]
-
-            i = j
+            # 実行するアクションのID
+            return self.setting.NUM_TO_ACTION[idx]
