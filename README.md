@@ -74,3 +74,22 @@ for _ in range(TRY_OUT):
 
     print(reward_sum)
 ```
+
+## The MiniDungeons Gym Environment
+Click [here](https://gym.openai.com/docs/) for a _Getting Started with Gym_ overview.
+
+### Actions
+An action within the gym-md environment (_env_) is represented as a python _list_ containing seven floating point values, for example:
+```python
+[0.7603953105618472,
+ 0.954037518265538,
+ 0.7224447519623062,
+ 0.35121023208759905,
+ 0.4878166326111911,
+ 0.6166020008598004,
+ 0.48734265188517545]
+```
+Each element in the array corresponds to a specfic action available for the game agent to take.
+
+### Environment
+The gym-md environment's step method returns the following values:
