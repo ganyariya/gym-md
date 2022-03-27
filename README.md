@@ -1,5 +1,20 @@
 # gym-md
 
+## 日本語のREADME.md
+The original Japanese README can be found [here](README/japan/README.md).
 
+## Overview
+gym-md is a python reimplementation[^1] of the dungeon exploration game [MiniDungeons](http://minidungeons.com/)[^2] created as an [OpenAI Gym](https://gym.openai.com/)[^3] environment. 
+MiniDungeons[^2] is a roguelike dungeon exploration game created as a benchmark research domain for modeling decision-making styles of human players[^4]. A Java implementation of MiniDungeons can be found [here](https://github.com/sentientdesigns/minidungeons).
 
-[Japanese README is here.](README/japan/README.md)
+[^1]: Y. Iwasaki. and K. Hasebe., “A framework for generating playstyles
+of game ai with clustering of play logs,” in Proceedings of the 14th
+International Conference on Agents and Artificial Intelligence - Volume
+3: ICAART,, INSTICC. SciTePress, 2022, pp. 605–612.
+[^2]: C. Holmgård, A. Liapis, J. Togelius, and G. N. Yannakakis, “Evolving
+personas for player decision modeling,” in 2014 IEEE Conference on
+Computational Intelligence and Games, 2014, pp. 1–8.
+[^3]: G. Brockman, V. Cheung, L. Pettersson, J. Schneider, J. Schulman, J. Tang, and W. Zaremba, “Openai gym,” arXiv preprint
+arXiv:1606.01540, 2016.
+[^4]: A. Liapis, “Minidungeons”, website, 2022. Accessed on: Mar. 27, 2022. [Online].
+Available: http://antoniosliapis.com/projects/project_minidungeons.php
