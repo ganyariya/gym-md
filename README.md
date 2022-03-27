@@ -46,3 +46,31 @@ pipenv run test
 # tox (you have to `pipenv install` beforehand)
 tox
 ```
+
+## Usage
+```python
+import gym
+import gym_md
+import random
+
+env = gym.make('md-test-v0')
+
+LOOP: int = 100
+TRY_OUT: int = 100
+
+for _ in range(TRY_OUT):
+    observation = env.reset()
+    reward_sum = 0
+    for i in range(LOOP):
+        env.render(mode='human')
+        actions = [random.random() for _ in range(7)]
+        observation, reward, done, info = env.step(actions)
+
+        reward_sum += reward
+
+        if done:
+            env.render()
+            break
+
+    print(reward_sum)
+```
