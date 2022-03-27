@@ -8,7 +8,7 @@ gym-md is a python reimplementation[^1] of the dungeon exploration game [MiniDun
 MiniDungeons[^2] is a roguelike dungeon exploration game created as a benchmark research domain for modeling decision-making styles of human players[^4]. A Java implementation of MiniDungeons can be found [here](https://github.com/sentientdesigns/minidungeons).
 
 <p align="center">
-    <img src="/README/resources/screen.png" width="200px">
+    <img src="/README/resources/screen.png" width="250px">
 </p>
 
 [^1]: Y. Iwasaki. and K. Hasebe., “A framework for generating playstyles
