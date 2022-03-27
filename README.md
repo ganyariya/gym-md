@@ -23,4 +23,26 @@ arXiv:1606.01540, 2016.
 [^4]: A. Liapis, “Minidungeons”, website, 2022. Accessed on: Mar. 27, 2022. [Online].
 Available: http://antoniosliapis.com/projects/project_minidungeons.php
 
+## Installation
+The gym-md python package can be found on pypi at https://pypi.org/project/gym-md/.
+To install the latest gym-md package run:
+```bash
+pip install gym-md
+```
+If you would like to build and install gym-md from source, please run the following commands:
+```bash
+git clone https://github.com/Ganariya/gym-md.git
+cd gym-md
 
+# install
+pipenv install
+
+# make document
+pipenv run build
+
+# test
+pipenv run test
+
+# tox (you have to `pipenv install` beforehand)
+tox
+```
