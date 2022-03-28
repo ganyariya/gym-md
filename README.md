@@ -76,6 +76,12 @@ for _ in range(TRY_OUT):
 ```
 
 ## The MiniDungeons Gym Environment
+### Overview
+
+<p align="center">
+    <img src="/README/resources/gym-md-env-action-loop.drawio.svg" width="600px">
+</p>
+
 Click [here](https://gym.openai.com/docs/) for a _Getting Started with Gym_ overview.
 
 ### Actions
