@@ -79,17 +79,34 @@ for _ in range(TRY_OUT):
 Click [here](https://gym.openai.com/docs/) for a _Getting Started with Gym_ overview.
 
 ### Actions
-An action within the gym-md environment (_env_) is represented as a python _list_ containing seven floating point values, for example:
+An action within the gym-md environment (_env_) is represented as a python _list_ containing seven (7) floating point values, for example:
 ```python
-[0.7603953105618472,
- 0.954037518265538,
- 0.7224447519623062,
- 0.35121023208759905,
- 0.4878166326111911,
- 0.6166020008598004,
- 0.48734265188517545]
+actions_eg = [0.7603953105618472,
+              0.954037518265538,
+              0.7224447519623062,
+              0.35121023208759905,
+              0.4878166326111911,
+              0.6166020008598004,
+              0.48734265188517545]
 ```
-Each element in the array corresponds to a specfic action available for the game agent to take.
+Each index in the _actions_ list corresponds to a specfic action available for the game agent to take:
+- index 0: Head to the monster
+- index 1: Head to the treasure
+- index 2: Head to the treasure (avoid monsters)
+- index 3: Head to the potion
+- index 4: Head to the potion (avoid monsters)
+- index 5: Head to the exit
+- index 6: Head to the exit (avoid monsters)
+
+The environment (_env_) selects the action, within the action float list, which has the highest value.
+
+In the `actions_eg` list example, the action with the highest value is 'Head to the treasure'
+(which is index 1, with a value of 0.954037518265538).
+However, if the selected highest action is not a valid action within the given state, then the next highest action value is taken.
+
+In the `actions_eg` list example, if the original highest action 'Head to the treasure' (index 1, with a value of 0.954037518265538) cannot be performed (e.g. there is no more treasure to collect) then the next highest action 'Head to the monster'
+(which is index 0, with a value of 0.7603953105618472) is chosen. This action selection process is repeated until a valid action can be
+performed within the given state. Furthermore, if the desired values are the same, an action is randomly selected.
 
 ### Environment
 The gym-md environment's step method returns the following values:
