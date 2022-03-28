@@ -104,7 +104,7 @@ actions_eg = [0.7603953105618472,
               0.6166020008598004,
               0.48734265188517545]
 ```
-Each index in the _actions_ list corresponds to a specfic action available for the game agent to take:
+Each index in the _actions_ list corresponds to a specific action available for the game agent to take:
 - index 0: Head to the monster
 - index 1: Head to the treasure
 - index 2: Head to the treasure (avoid monsters)
@@ -178,7 +178,7 @@ class TestMdEnv(MdEnvBase):
         stage_name: Final[str] = "test"
         super(TestMdEnv, self).__init__(stage_name=stage_name)
 ```
-You will also need to set the respective level's json file and textfile, found respectively within the [props](gym_md/envs/props) and [stages](gym_md/envs/stages) folders.
+You will also need to set the respective level's json file and txt file, found respectively within the [props](gym_md/envs/props) and [stages](gym_md/envs/stages) folders.
 Furthermore, you will then need to add the additional levels to the [gym_md.\_\_init\_\_.py](gym_md/__init__.py) and [gym_md.envs.\_\_init\_\_.py](gym_md/envs/__init__.py) files.
 
 For a list of the current available gym_md environment _levels_, please see [env_levels.txt](README/resources/env_levels.txt). The [env_levels.txt](README/resources/env_levels.txt) file contains the env levels registered within the [gym_md.\_\_init\_\_.py](gym_md/__init__.py).
