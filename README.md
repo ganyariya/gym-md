@@ -110,3 +110,42 @@ performed within the given state. Furthermore, if the desired values are the sam
 
 ### Environment
 The gym-md environment's step method returns the following values:
+```python
+observation, reward, done, info = env.step(actions)
+```
+- observation (list): the resultant observation of the environment is represented as a list of integers of length eight (8).
+  - an example output observation is:
+    ```python
+    [4, 4, 4, 10, 1000, 8, 8, 30]
+    ```
+  - each index in the _observation_ list represents the following:
+    - index 0: Agent's physical strength
+    - index 1: Distance to the monster
+    - index 2: Distance to the treasure
+    - index 3: Distance to treasure (avoid monsters)
+    - index 4: Distance to potion
+    - index 5: Distance to potion (avoid monsters)
+    - index 6: Distance to the exit
+    - index 7: Distance to the exit (avoid monsters)
+  - some of the observation values received is level specific and can be adjusted/set by modifying the respective level `.json` file, found within the [props](gym_md/envs/props) folder.
+    - for example, the 1000 value for index 4 (Distance to potion) corresponds to the "DISTANCE_INF" value set within the [test.json](gym_md/envs/props/test.json) level file.  
+- reward (float): amount of reward achieved by the previous action.
+  - the reward received is level specific and can be adjusted/set by modifying the respective level `.json` file, found within the [props](gym_md/envs/props) folder.
+  - for example, the rewards set in the test level ([test.json](gym_md/envs/props/test.json)) are: 
+    ```python
+      "REWARDS": {
+        "TURN": 1,
+        "EXIT": 20,
+        "KILL": 4,
+        "TREASURE": 3,
+        "PORTION": 1,
+        "DEAD": -20
+      }
+    ```
+- done (boolean): indicated whether the episode has terminated or not. In other words, `True` indicates 'yes, the level has ended', whilst `False` indicates 'no, the level has not yet ended'.
+- info (dict): a dictionary containing play data, each action taken by the agent is tracked by this dictionary.
+  - an example info output is:
+    ```python
+    defaultdict(<class 'int'>, {'PORTION': 7, '.': 38, 'MONSTER': 9, 'EXIT_SAFELY': 4, 'TREASURE': 3, 'TREASURE_SAFELY': 9, 'EXIT': 6})
+    ```
+    
