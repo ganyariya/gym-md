@@ -1,7 +1,16 @@
 # gym-md
-
 ## 日本語のREADME.md
 The original Japanese README can be found [here](README/japan/README.md).
+
+## Contents
+* [Overview](#overview)
+* [Installation](#installation)
+* [Usage](#usage)
+* [The MiniDungeons Gym Environment](#the-minidungeons-gym-environment)
+    + [Overview](#overview-1)
+    + [Actions](#actions)
+    + [Environment](#environment)
+* [Levels and Settings](#levels-and-settings)
 
 ## Overview
 gym-md is a python reimplementation[^1] of the dungeon exploration game [MiniDungeons](http://minidungeons.com/)[^2] created as an [OpenAI Gym](https://gym.openai.com/)[^3] environment. 
