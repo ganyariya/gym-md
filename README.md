@@ -172,5 +172,4 @@ class TestMdEnv(MdEnvBase):
 You will also need to set the respective level's json file and textfile, found respectively within the [props](gym_md/envs/props) and [stages](gym_md/envs/stages) folders.
 Furthermore, you will then need to add the additional levels to the [gym_md.\_\_init\_\_.py](gym_md/__init__.py) and [gym_md.envs.\_\_init\_\_.py](gym_md/envs/__init__.py) files.
 
-
-
+For a list of the current available gym_md environment _levels_, please see [env_levels.txt](README/resources/env_levels.txt). The [env_levels.txt](README/resources/env_levels.txt) file contains the env levels registered within the [gym_md.\_\_init\_\_.py](gym_md/__init__.py).
