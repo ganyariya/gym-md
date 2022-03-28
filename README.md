@@ -155,3 +155,22 @@ observation, reward, done, info = env.step(actions)
     defaultdict(<class 'int'>, {'PORTION': 7, '.': 38, 'MONSTER': 9, 'EXIT_SAFELY': 4, 'TREASURE': 3, 'TREASURE_SAFELY': 9, 'EXIT': 6})
     ```
     
+## Levels and Settings
+New levels can be created by creating your own class which inherits from the [MdEnvBase](gym_md/envs/md_env.py) class. The below example, along with others, can be found within the [md_env_list.py](gym_md/envs/md_env_list.py) script.
+```python
+from typing import Final
+
+from gym_md.envs.md_env import MdEnvBase
+
+class TestMdEnv(MdEnvBase):
+    """TestMdEnv Class."""
+
+    def __init__(self):
+        stage_name: Final[str] = "test"
+        super(TestMdEnv, self).__init__(stage_name=stage_name)
+```
+You will also need to set the respective level's json file and textfile, found respectively within the [props](gym_md/envs/props) and [stages](gym_md/envs/stages) folders.
+Furthermore, you will then need to add the additional levels to the [gym_md.\_\_init\_\_.py](gym_md/__init__.py) and [gym_md.envs.\_\_init\_\_.py](gym_md/envs/__init__.py) files.
+
+
+
