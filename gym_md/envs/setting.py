@@ -98,6 +98,7 @@ class Setting(Singleton):
 
         """
         file_dir: str = path.dirname(__file__)
+        target_stage_file: str = f"{stage_name}.json"
         json_path = path.join(file_dir, "props", f"{stage_name}.json")
         with open(json_path, "r") as f:
             data = json.load(f)
