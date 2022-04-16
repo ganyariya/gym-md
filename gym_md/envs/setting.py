@@ -97,7 +97,7 @@ class Setting(Singleton):
         PropsConfig
 
         """
-        file_dir = path.dirname(__file__)
+        file_dir: str = path.dirname(__file__)
         json_path = path.join(file_dir, "props", f"{stage_name}.json")
         with open(json_path, "r") as f:
             data = json.load(f)
