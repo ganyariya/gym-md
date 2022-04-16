@@ -8,6 +8,7 @@ import json
 from copy import deepcopy
 from os import path, listdir
 from typing import Dict, Final, List
+from platform import system as platform_system
 
 from gym_md.envs import definition
 from gym_md.envs.config.props_config import PropsConfig, RewardsConfig
@@ -99,13 +100,13 @@ class Setting(Singleton):
         """
         file_dir: str = path.dirname(__file__)
         target_stage_file: str = f"{stage_name}.json"
+        json_path: str = path.join(file_dir, "props", target_stage_file)
 
-        prop_files_dir: list = listdir(path.join(file_dir, "props"))
-        prop_files_dir_lowercased: list = [file_name.lower() for file_name in prop_files_dir]
-
-        actual_stage_file: str = prop_files_dir[prop_files_dir_lowercased.index(target_stage_file.lower())]
-
-        json_path: str = path.join(file_dir, "props", actual_stage_file)
+        if platform_system().lower() == "linux":
+            prop_files_dir: list = listdir(path.join(file_dir, "props"))
+            prop_files_dir_lowercased: list = [file_name.lower() for file_name in prop_files_dir]
+            actual_stage_file: str = prop_files_dir[prop_files_dir_lowercased.index(target_stage_file.lower())]
+            json_path: str = path.join(file_dir, "props", actual_stage_file)
 
         with open(json_path, "r") as f:
             data = json.load(f)
