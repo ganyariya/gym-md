@@ -105,7 +105,8 @@ class Setting(Singleton):
 
         actual_stage_file: str = prop_files_dir[prop_files_dir_lowercased.index(target_stage_file.lower())]
 
-        json_path = path.join(file_dir, "props", f"{stage_name}.json")
+        json_path: str = path.join(file_dir, "props", actual_stage_file)
+
         with open(json_path, "r") as f:
             data = json.load(f)
             props_config = PropsConfig(**data)
