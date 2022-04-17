@@ -134,14 +134,14 @@ observation, reward, done, info = env.step(actions)
     [4, 4, 4, 10, 1000, 8, 8, 30]
     ```
   - each index in the _observation_ list represents the following:
-    - index 0: Agent's physical strength
-    - index 1: Distance to the monster
-    - index 2: Distance to the treasure
-    - index 3: Distance to treasure (avoid monsters)
-    - index 4: Distance to potion
-    - index 5: Distance to potion (avoid monsters)
-    - index 6: Distance to the exit
-    - index 7: Distance to the exit (avoid monsters)
+    - index 0: Distance to the monster
+    - index 1: Distance to the treasure
+    - index 2: Distance to treasure (avoid monsters)
+    - index 3: Distance to potion
+    - index 4: Distance to potion (avoid monsters)
+    - index 5: Distance to the exit
+    - index 6: Distance to the exit (avoid monsters)
+    - index 7: Agent's physical strength (i.e. _Hit Points (HP)_)
   - some of the observation values received is level specific and can be adjusted/set by modifying the respective level `.json` file, found within the [props](gym_md/envs/props) folder.
     - for example, the 1000 value for index 4 (Distance to potion) corresponds to the "DISTANCE_INF" value set within the [test.json](gym_md/envs/props/test.json) level file.  
 - reward (float): amount of reward achieved by the previous action.
