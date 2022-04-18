@@ -33,6 +33,7 @@ arXiv:1606.01540, 2016.
 Available: http://antoniosliapis.com/projects/project_minidungeons.php
 
 ## Installation
+### Installing from PyPI
 The gym-md python package can be found on [pypi](https://pypi.org/project/gym-md/).
 To install the latest gym-md package run:
 ```bash
