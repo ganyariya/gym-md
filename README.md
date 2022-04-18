@@ -14,6 +14,8 @@ The original Japanese README can be found [here](README/japan/README.md).
     + [Overview](#overview-1)
     + [Actions](#actions)
     + [Environment](#environment)
+      - [env object](#env-object)
+      - [env.step method](#envstep-method)
 * [Levels and Settings](#levels-and-settings)
 
 ## Overview
@@ -183,7 +185,7 @@ The  _env_ object contains:
       - `env.agent.x`: agent's x-position in grid world.
       - For the full list of attributes please see [agent.py](gym_md/envs/agent/agent.py).
 
-The [OpenAI Gym environment](https://gym.openai.com/docs/) specific methods are discussed as part of the 'env.step method' subsection.
+The [OpenAI Gym environment](https://gym.openai.com/docs/) specific methods are discussed as part of the [env.step method](#envstep-method) subsection.
 
 #### env.step method
 The gym-md environment's step method returns the following values:
