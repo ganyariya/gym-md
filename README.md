@@ -5,6 +5,10 @@ The original Japanese README can be found [here](README/japan/README.md).
 ## Contents
 * [Overview](#overview)
 * [Installation](#installation)
+    + [Installing from PyPI](#installing-from-pypi)
+    + [Running build and tests](#running-build-and-tests)
+      - [Prerequisites](#prerequisites)
+      - [Running the build and tests](#running-the-build-and-tests)
 * [Usage](#usage)
 * [The MiniDungeons Gym Environment](#the-minidungeons-gym-environment)
     + [Overview](#overview-1)
