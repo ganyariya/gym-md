@@ -154,6 +154,8 @@ performed within the given state. Furthermore, if the desired values are the sam
 
 ### Environment
 #### env object
+The _env_ object created using `env = gym.make('md-test-v0')` is based on the `MdEnvBase` class defined within [md_env.py](gym_md/envs/md_env.py).
+The _env_ object contains several objects and methods (only a subset is discussed here, please see [md_env.py](gym_md/envs/md_env.py) for more).
 
 #### env.step method
 The gym-md environment's step method returns the following values:
