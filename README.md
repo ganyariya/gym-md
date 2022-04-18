@@ -153,6 +153,9 @@ In the `actions_eg` list example, if the original highest action 'Head to the tr
 performed within the given state. Furthermore, if the desired values are the same, an action is randomly selected.
 
 ### Environment
+#### env object
+
+#### env.step method
 The gym-md environment's step method returns the following values:
 ```python
 observation, reward, done, info = env.step(actions)
