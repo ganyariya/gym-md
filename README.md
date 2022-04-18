@@ -53,22 +53,32 @@ Please see [tox installation](https://tox.wiki/en/latest/install.html#tox-instal
 pip install tox
 ```
 
+#### Running the build and tests
 If you would like to build and install gym-md from source, please run the following commands:
 ```bash
 git clone https://github.com/Ganariya/gym-md.git
 cd gym-md
 
-# install
+# create the pipenv gym-md build and testing environment
 pipenv install
 
-# make document
+# launch the pipenv environment
+pipenv shell
+
+# build gym-md documentation
 pipenv run build
 
-# test
+# run gym-md tests
 pipenv run test
 
-# tox (you have to `pipenv install` beforehand)
+# start the tox testing orchestration
 tox
+
+# to build and upload your own gym-md wheel (.whl) file, please see the upload.sh file.
+# your custom .whl can be locally installed using: pip install <path to .whl>
+rm -f -r gym_md.egg-info/* dist/*
+python setup.py bdist_wheel
+twine upload dist/*
 ```
 
 ## Usage
