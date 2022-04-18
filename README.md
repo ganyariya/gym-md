@@ -39,6 +39,20 @@ To install the latest gym-md package run:
 ```bash
 pip install gym-md
 ```
+### Running build and tests
+#### Prerequisites 
+The gym-md project makes use of [pipenv](https://pypi.org/project/pipenv/) for the overall project's package management.
+In order to build the project's documentation and run the respective tests pipenv will need to be installed.
+Please see the 'Installation' section on the [pipenv](https://pypi.org/project/pipenv/) PyPI page.
+If you face any issues with the pipenv installation, you can also try installing pipenv using pip (see [source](https://www.codegrepper.com/code-examples/shell/pipenv+not+found+after+pip3+install)).
+
+Furthermore, several additional tests and code linting is orchestrated using [tox](https://tox.wiki/en/latest/),
+defined in the [tox.ini](tox.ini) file.
+Please see [tox installation](https://tox.wiki/en/latest/install.html#tox-installation) for more:
+```
+pip install tox
+```
+
 If you would like to build and install gym-md from source, please run the following commands:
 ```bash
 git clone https://github.com/Ganariya/gym-md.git
