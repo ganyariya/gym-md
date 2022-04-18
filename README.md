@@ -167,6 +167,24 @@ The  _env_ object contains:
       - `env.setting.ACTIONS`: actions available in the stage.
       - For the full list of setting values please see [setting.py](gym_md/envs/setting.py).
 
+- An internal grid object of the _Grid_ class defined within [grid.py](gym_md/envs/grid.py). This grid object is a grid world representation of the world stage.
+  - `env.grid`
+    - helpful grid world info can be accessed within the grid object:
+      - `env.grid.H`: grid world's height.
+      - `env.grid.W`: grid world's width.
+      - `env.grid.g`: grid world represented as a 2D list.
+      - For the full list of attributes please see [grid.py](gym_md/envs/grid.py).
+
+- An internal agent object of the _Agent_ class defined within [agent.py](gym_md/envs/agent/agent.py). When an action is passed into the env.step method, this internal agent object is used to carry out the action.
+  - `env.agent`
+    - helpful agent info can be accessed within the agent object:
+      - `env.agent.hp`: agent's hit points.
+      - `env.agent.y`: agent's y-position in grid world.
+      - `env.agent.x`: agent's x-position in grid world.
+      - For the full list of attributes please see [agent.py](gym_md/envs/agent/agent.py).
+
+The [OpenAI Gym environment](https://gym.openai.com/docs/) specific methods are discussed as part of the 'env.step method' subsection.
+
 #### env.step method
 The gym-md environment's step method returns the following values:
 ```python
