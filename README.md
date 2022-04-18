@@ -156,6 +156,16 @@ performed within the given state. Furthermore, if the desired values are the sam
 #### env object
 The _env_ object created using `env = gym.make('md-test-v0')` is based on the `MdEnvBase` class defined within [md_env.py](gym_md/envs/md_env.py).
 The _env_ object contains several objects and methods (only a subset is discussed here, please see [md_env.py](gym_md/envs/md_env.py) for more).
+The  _env_ object contains:
+- The current stage name
+  - `env.stage_name` 
+- An internal settings object of the _Setting_ class defined within [setting.py](gym_md/envs/setting.py). This object contains all the stage specific information and configuration. 
+  - `env.setting`
+    - helpful stage specific info can be accessed within the setting object:
+      - `env.setting.PLAYER_MAX_HP`: agent's max hit points.
+      - `env.setting.REWARDS`: reward values obtained.
+      - `env.setting.ACTIONS`: actions available in the stage.
+      - For the full list of setting values please see [setting.py](gym_md/envs/setting.py).
 
 #### env.step method
 The gym-md environment's step method returns the following values:
