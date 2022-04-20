@@ -54,10 +54,7 @@ If you face any issues with the pipenv installation, you can also try installing
 
 Furthermore, several additional tests and code linting is orchestrated using [tox](https://tox.wiki/en/latest/),
 defined in the [tox.ini](tox.ini) file.
-Please see [tox installation](https://tox.wiki/en/latest/install.html#tox-installation) for more:
-```
-pip install tox
-```
+Please see [tox installation](https://tox.wiki/en/latest/install.html#tox-installation) for more detail.
 
 #### Running the build and tests
 If you would like to build and install gym-md from source, please run the following commands:
