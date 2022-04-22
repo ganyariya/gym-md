@@ -31,7 +31,7 @@ gym\_md.envs.agent.move\_info module
 gym\_md.envs.agent.path module
 ------------------------------
 
-.. automodule:: gym_md.envs.agent.path
+.. automodule:: gym_md.envs.agent.pather
    :members:
    :undoc-members:
    :show-inheritance:
