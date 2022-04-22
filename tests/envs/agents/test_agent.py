@@ -19,9 +19,9 @@ def test_select_action(make_agent: Agent):
     treasure_safely = make_agent.select_action(treasure_safely_actions)
     assert treasure_safely == "TREASURE_SAFELY"
 
-    portion_safely_actions = [0, 0, 0, 0, 4, 0, 1]
-    portion_safely_but_monster = make_agent.select_action(portion_safely_actions)
-    assert portion_safely_but_monster == "EXIT_SAFELY"
+    potion_safely_actions = [0, 0, 0, 0, 4, 0, 1]
+    potion_safely_but_monster = make_agent.select_action(potion_safely_actions)
+    assert potion_safely_but_monster == "EXIT_SAFELY"
 
 
 def test_agent_attacked_by_enemy_random(make_agent: Agent) -> None:

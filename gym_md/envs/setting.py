@@ -62,7 +62,7 @@ class Setting(Singleton):
         self.ENEMY_POWER_MIN = props_config.ENEMY_POWER_MIN
         self.ENEMY_POWER_MAX = props_config.ENEMY_POWER_MAX
         self.IS_ENEMY_POWER_RANDOM = props_config.IS_ENEMY_POWER_RANDOM
-        self.PORTION_POWER = props_config.PORTION_POWER
+        self.POTION_POWER = props_config.POTION_POWER
         self.DISTANCE_INF = props_config.DISTANCE_INF
         self.RENDER_WAIT_TIME = props_config.RENDER_WAIT_TIME
         self.REWARDS: RewardsConfig = deepcopy(props_config.REWARDS)

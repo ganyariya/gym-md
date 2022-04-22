@@ -214,7 +214,7 @@ observation, reward, done, info = env.step(actions)
         "EXIT": 20,
         "KILL": 4,
         "TREASURE": 3,
-        "PORTION": 1,
+        "POTION": 1,
         "DEAD": -20
       }
     ```
@@ -222,7 +222,7 @@ observation, reward, done, info = env.step(actions)
 - info (dict): a dictionary containing play data, each action taken by the agent is tracked by this dictionary.
   - an example info output is:
     ```python
-    defaultdict(<class 'int'>, {'PORTION': 7, '.': 38, 'MONSTER': 9, 'EXIT_SAFELY': 4, 'TREASURE': 3, 'TREASURE_SAFELY': 9, 'EXIT': 6})
+    defaultdict(<class 'int'>, {'POTION': 7, '.': 38, 'MONSTER': 9, 'EXIT_SAFELY': 4, 'TREASURE': 3, 'TREASURE_SAFELY': 9, 'EXIT': 6})
     ```
     
 ## Levels and Settings

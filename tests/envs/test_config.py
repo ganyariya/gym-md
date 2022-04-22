@@ -9,7 +9,7 @@ class TestConfig:
             "EXIT": 20,
             "KILL": 30,
             "TREASURE": 40,
-            "PORTION": 50,
+            "POTION": 50,
             "DEAD": 60
         }
         rewards_config = RewardsConfig(**data)
@@ -23,7 +23,7 @@ class TestConfig:
             "ENEMY_POWER_MIN": 5,
             "ENEMY_POWER_MAX": 15,
             "IS_ENEMY_POWER_RANDOM": True,
-            "PORTION_POWER": 10,
+            "POTION_POWER": 10,
             "DISTANCE_INF": 1000,
             "RENDER_WAIT_TIME": 0.05,
             "REWARDS":
@@ -32,7 +32,7 @@ class TestConfig:
                     "EXIT": 20,
                     "KILL": 30,
                     "TREASURE": 40,
-                    "PORTION": 50,
+                    "POTION": 50,
                     "DEAD": 60
                 }
         }
@@ -45,7 +45,7 @@ class TestConfig:
         data = {
             "PLAYER_MAX_HP": 40,
             "ENEMY_POWER": 10,
-            "PORTION_POWER": 10,
+            "POTION_POWER": 10,
             "DISTANCE_INF": 1000,
             "RENDER_WAIT_TIME": 0.05,
             "REWARDS":
@@ -54,7 +54,7 @@ class TestConfig:
                     "EXIT": 20,
                     "KILL": 30,
                     "TREASURE": 40,
-                    "PORTION": 50,
+                    "POTION": 50,
                     "DEAD": 60
                 }
         }

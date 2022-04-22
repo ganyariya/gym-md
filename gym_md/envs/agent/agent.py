@@ -130,7 +130,7 @@ class Agent:
                 )
             self.hp -= attack
         if self.grid[y, x] == self.setting.CHARACTER_TO_NUM["P"]:
-            self.hp += self.setting.PORTION_POWER
+            self.hp += self.setting.POTION_POWER
             if self.setting.IS_PLAYER_HP_LIMIT:
                 self.hp = min(self.hp, self.setting.PLAYER_MAX_HP)
 

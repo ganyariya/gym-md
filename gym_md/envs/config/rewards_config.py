@@ -9,5 +9,5 @@ class RewardsConfig(BaseModel):
     EXIT: float
     KILL: float
     TREASURE: float
-    PORTION: float
+    POTION: float
     DEAD: float

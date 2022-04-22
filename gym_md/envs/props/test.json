@@ -5,7 +5,7 @@
   "ENEMY_POWER_MIN": 5,
   "ENEMY_POWER_MAX": 15,
   "IS_ENEMY_POWER_RANDOM": true,
-  "PORTION_POWER": 10,
+  "POTION_POWER": 10,
   "DISTANCE_INF": 1000,
   "RENDER_WAIT_TIME": 0.05,
   "REWARDS": {
@@ -13,7 +13,7 @@
     "EXIT": 20,
     "KILL": 4,
     "TREASURE": 3,
-    "PORTION": 1,
+    "POTION": 1,
     "DEAD": -20
   }
 }
