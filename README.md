@@ -5,11 +5,17 @@ The original Japanese README can be found [here](README/japan/README.md).
 ## Contents
 * [Overview](#overview)
 * [Installation](#installation)
+    + [Installing from PyPI](#installing-from-pypi)
+    + [Running build and tests](#running-build-and-tests)
+      - [Prerequisites](#prerequisites)
+      - [Running the build and tests](#running-the-build-and-tests)
 * [Usage](#usage)
 * [The MiniDungeons Gym Environment](#the-minidungeons-gym-environment)
     + [Overview](#overview-1)
     + [Actions](#actions)
     + [Environment](#environment)
+      - [env object](#env-object)
+      - [env.step method](#envstep-method)
 * [Levels and Settings](#levels-and-settings)
 
 ## Overview
@@ -33,27 +39,49 @@ arXiv:1606.01540, 2016.
 Available: http://antoniosliapis.com/projects/project_minidungeons.php
 
 ## Installation
+### Installing from PyPI
 The gym-md python package can be found on [pypi](https://pypi.org/project/gym-md/).
 To install the latest gym-md package run:
 ```bash
 pip install gym-md
 ```
+### Running build and tests
+#### Prerequisites 
+The gym-md project makes use of [pipenv](https://pypi.org/project/pipenv/) for the overall project's package management.
+In order to build the project's documentation and run the respective tests pipenv will need to be installed.
+Please see the 'Installation' section on the [pipenv](https://pypi.org/project/pipenv/) PyPI page.
+If you face any issues with the pipenv installation, you can also try installing pipenv using pip (see [source](https://www.codegrepper.com/code-examples/shell/pipenv+not+found+after+pip3+install)).
+
+Furthermore, several additional tests and code linting is orchestrated using [tox](https://tox.wiki/en/latest/),
+defined in the [tox.ini](tox.ini) file.
+Please see [tox installation](https://tox.wiki/en/latest/install.html#tox-installation) for more detail.
+
+#### Running the build and tests
 If you would like to build and install gym-md from source, please run the following commands:
 ```bash
 git clone https://github.com/Ganariya/gym-md.git
 cd gym-md
 
-# install
+# create the pipenv gym-md build and testing environment
 pipenv install
 
-# make document
+# launch the pipenv environment
+pipenv shell
+
+# build gym-md documentation
 pipenv run build
 
-# test
+# run gym-md tests
 pipenv run test
 
-# tox (you have to `pipenv install` beforehand)
+# start the tox testing orchestration
 tox
+
+# to build and upload your own gym-md wheel (.whl) file, please see the upload.sh file.
+# your custom .whl can be locally installed using: pip install <path to .whl>
+rm -f -r gym_md.egg-info/* dist/*
+python setup.py bdist_wheel
+twine upload dist/*
 ```
 
 ## Usage
@@ -124,6 +152,39 @@ In the `actions_eg` list example, if the original highest action 'Head to the tr
 performed within the given state. Furthermore, if the desired values are the same, an action is randomly selected.
 
 ### Environment
+#### env object
+The _env_ object created using `env = gym.make('md-test-v0')` is based on the `MdEnvBase` class defined within [md_env.py](gym_md/envs/md_env.py).
+The _env_ object contains several objects and methods (only a subset is discussed here, please see [md_env.py](gym_md/envs/md_env.py) for more).
+The  _env_ object contains:
+- The current stage name
+  - `env.stage_name` 
+- An internal settings object of the _Setting_ class defined within [setting.py](gym_md/envs/setting.py). This object contains all the stage specific information and configuration. 
+  - `env.setting`
+    - helpful stage specific info can be accessed within the setting object:
+      - `env.setting.PLAYER_MAX_HP`: agent's max hit points.
+      - `env.setting.REWARDS`: reward values obtained.
+      - `env.setting.ACTIONS`: actions available in the stage.
+      - For the full list of setting values please see [setting.py](gym_md/envs/setting.py).
+
+- An internal grid object of the _Grid_ class defined within [grid.py](gym_md/envs/grid.py). This grid object is a grid world representation of the world stage.
+  - `env.grid`
+    - helpful grid world info can be accessed within the grid object:
+      - `env.grid.H`: grid world's height.
+      - `env.grid.W`: grid world's width.
+      - `env.grid.g`: grid world represented as a 2D list.
+      - For the full list of attributes please see [grid.py](gym_md/envs/grid.py).
+
+- An internal agent object of the _Agent_ class defined within [agent.py](gym_md/envs/agent/agent.py). When an action is passed into the env.step method, this internal agent object is used to carry out the action.
+  - `env.agent`
+    - helpful agent info can be accessed within the agent object:
+      - `env.agent.hp`: agent's hit points.
+      - `env.agent.y`: agent's y-position in grid world.
+      - `env.agent.x`: agent's x-position in grid world.
+      - For the full list of attributes please see [agent.py](gym_md/envs/agent/agent.py).
+
+The [OpenAI Gym environment](https://gym.openai.com/docs/) specific methods are discussed as part of the [env.step method](#envstep-method) subsection.
+
+#### env.step method
 The gym-md environment's step method returns the following values:
 ```python
 observation, reward, done, info = env.step(actions)
