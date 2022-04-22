@@ -158,7 +158,7 @@ class MdEnvBase(gym.Env):
         if self.grid[y, x] == C["M"]:
             ret += R.KILL
         if self.grid[y, x] == C["P"]:
-            ret += R.PORTION
+            ret += R.POTION
         return ret
 
     def _get_info(

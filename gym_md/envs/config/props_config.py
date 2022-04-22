@@ -17,7 +17,7 @@ class PropsConfig(BaseModel):
     ENEMY_POWER_MAX: int = 10
     IS_ENEMY_POWER_RANDOM: bool = False
 
-    PORTION_POWER: int = 10
+    POTION_POWER: int = 10
     DISTANCE_INF: int
     RENDER_WAIT_TIME: float
 

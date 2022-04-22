@@ -12,7 +12,7 @@ def test_change_rewards(make_gym: MdEnvBase):
         "EXIT": -1,
         "KILL": -1,
         "TREASURE": -1,
-        "PORTION": -1,
+        "POTION": -1,
         "DEAD": -1
     }
     make_gym.change_reward_values(rewards)
@@ -30,7 +30,7 @@ def test_change_rewards(make_gym: MdEnvBase):
         "EXIT": 102,
         "KILL": 103,
         "TREASURE": 104,
-        "PORTION": 105,
+        "POTION": 105,
         "DEAD": 106
     }
     make_gym.change_reward_values(rewards)
