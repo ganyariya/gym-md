@@ -23,7 +23,7 @@ gym-md is a python reimplementation[^1] of the dungeon exploration game [MiniDun
 MiniDungeons[^2] is a roguelike dungeon exploration game created as a benchmark research domain for modeling decision-making styles of human players[^4]. A Java implementation of MiniDungeons can be found [here](https://github.com/sentientdesigns/minidungeons).
 
 <p align="center">
-    <img src="https://github.com/ganyariya/gym-md/blob/main/README/resources/screen.png?raw=true" width="250px">
+    <img src="https://github.com/ganyariya/gym-md/blob/main/README/resources/md_stages_screenshots/md-test-v0_step0.jpg?raw=true" width="250px">
 </p>
 
 [^1]: Y. Iwasaki. and K. Hasebe., “A framework for generating playstyles
@@ -245,4 +245,5 @@ class TestMdEnv(MdEnvBase):
 You will also need to set the respective level's json file and txt file, found respectively within the [props](gym_md/envs/props) and [stages](gym_md/envs/stages) folders.
 Furthermore, you will then need to add the additional levels to the [gym_md.\_\_init\_\_.py](gym_md/__init__.py) and [gym_md.envs.\_\_init\_\_.py](gym_md/envs/__init__.py) files.
 
-For a list of the current available gym_md environment _levels_, please see [env_levels.txt](README/resources/env_levels.txt). The [env_levels.txt](README/resources/env_levels.txt) file contains the env levels registered within the [gym_md.\_\_init\_\_.py](gym_md/__init__.py).
+For a list of the current available gym_md environment _levels_, please see [Stages README.md](README/resources/md_stages_screenshots/README.md). For a simpler level list view please see [env_levels.txt](README/resources/env_levels.txt).
+Both the _Stages README.md_ and _env_levels.txt_ files contains the env levels registered within the [gym_md.\_\_init\_\_.py](gym_md/__init__.py).
